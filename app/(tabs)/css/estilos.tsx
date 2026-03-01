@@ -73,28 +73,9 @@ const estilos = StyleSheet.create({
        width: '100%',
        textAlign: 'center'
     },
-    itemContainer: {
-        paddingVertical: 20,
-        borderBottomColor: '#6f6f6f',
-        borderBottomWidth: 1,
-        width: '100%'
-    },
     text: {
         fontSize: 16,
         color: "#6f6f6f"
-    },
-    textdone: {
-        fontSize: 16,
-        textDecorationLine: "line-through",
-        color: '#a1a1a1'
-    },
-    eliminar: {
-        backgroundColor: "red",
-        padding: 8,
-        borderRadius: 5,
-        marginTop: 5,
-        alignItems: 'center',
-        width: 80
     },
     botonForgot: {
         marginTop: 10,
