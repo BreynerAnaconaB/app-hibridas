@@ -5,6 +5,9 @@ const estilos = StyleSheet.create({
         fontSize: 20,
         color: 'blue',
         backgroundColor: 'gray',
+        display:'flex',
+        justifyContent:'center',
+        textAlign:'center',
         padding: 10,
         borderRadius: 10
     },
@@ -31,18 +34,16 @@ const estilos = StyleSheet.create({
       borderRadius:10,
       padding:10
     },
-    itemContainer:{
-        paddingVertical:20,
-        borderBottomColor:'#6f6f6f',
-        borderWidth:2
-    },
     textdone:{
         fontSize:16,
         textDecorationLine:"line-through"
     },
     text:{
-        fontSize:16,
-        color:"#6f6f6f"
+        fontSize:50,
+        color:"#000000",
+        display:'flex',
+        justifyContent:'center',
+        padding:40
     },
     eliminar:{
         backgroundColor:"red"

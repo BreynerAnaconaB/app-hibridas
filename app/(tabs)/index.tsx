@@ -9,14 +9,14 @@ interface Introduccion{
 }
 
 const task: Introduccion[] = [{
-  title:"Bañarme",
+  title:"Tecnano",
   text: "hola pepito",
 }];
 
 
 function renderItem({item}:{item:Introduccion}){
   return (
-  <View style={estilos.itemContainer}>
+  <View>
     <Text style={estilos.text}>{item.title}</Text>
   </View>
   );
