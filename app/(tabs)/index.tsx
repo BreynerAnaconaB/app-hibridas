@@ -1,4 +1,4 @@
-import { FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import estilos from "./css/estilos";
 
 const task=[{
@@ -13,7 +13,7 @@ const task=[{
 },
 {
   title:"Comer",
-  done:false,
+  done:true,
   date:new Date()
 }
 ]
@@ -43,21 +43,15 @@ function renderItem({item}:{item:Task}){
  
 export default function Tareas() {
  
-    return (
-        <View style={estilos.container}>
-            <Text style={estilos.Titulo}>Mis Tareas</Text>
-            <View style={estilos.inputcontainer}>
-                <TextInput style={estilos.textinput} placeholder="Agregar tarea"/>
-                <TouchableOpacity style={estilos.boton}>
-                    <Text style={estilos.withetext}>Agregar</Text>
-                </TouchableOpacity>
-            </View>
-            <View>
-              <FlatList
-               renderItem={renderItem}
-               data={task}
-              />
-            </View>
+  return (
+    <View style={[estilos.container, { flex: 1 }]}> 
+        <View style={estilos.inputcontainer}>
         </View>
-    );
+        <FlatList
+            renderItem={renderItem}
+            data={task}
+            keyExtractor={(item) => item.title} 
+        />
+    </View>
+);
 }

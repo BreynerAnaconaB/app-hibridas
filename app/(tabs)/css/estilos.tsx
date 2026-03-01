@@ -10,7 +10,10 @@ const estilos = StyleSheet.create({
     },
     Titulo: {
         fontSize: 20,
-        color: 'blue'
+        color: 'blue',
+        backgroundColor: 'gray',
+        padding: 10,
+        borderRadius: 10
     },
     textinput: {
         borderColor: 'gray',
