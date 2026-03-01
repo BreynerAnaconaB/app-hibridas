@@ -1,13 +1,6 @@
 import { StyleSheet } from "react-native";
  
 const estilos = StyleSheet.create({
-    container: {
-        width: '100%',
-        padding: 20,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
     Titulo: {
         fontSize: 20,
         color: 'blue',
@@ -53,6 +46,10 @@ const estilos = StyleSheet.create({
     },
     eliminar:{
         backgroundColor:"red"
+    },
+    estilosProducto:{
+        width:200,
+        height:200
     }
 });
 
