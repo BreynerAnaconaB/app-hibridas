@@ -20,11 +20,14 @@ const estilosLayout = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: { 
-    color: 'white', 
-    fontSize: 18, 
-    fontWeight: 'bold' 
-  },
+  text: {
+    backgroundColor: '#6f6f6f', 
+    paddingVertical: 5,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    color: 'white',
+    fontSize: 16,
+    },
   textSmall: { 
     color: 'white', 
     fontSize: 12 
@@ -39,6 +42,7 @@ const estilosLayout = StyleSheet.create({
     color: 'white', 
     fontSize: 14,
   },    
+  
 });
 
 export default estilosLayout;

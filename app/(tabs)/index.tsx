@@ -1,5 +1,5 @@
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
-import estilos from "../css/estilos";
+import estilos from "./css/estilos";
 
 const task=[{
   title:"Bañarme",
