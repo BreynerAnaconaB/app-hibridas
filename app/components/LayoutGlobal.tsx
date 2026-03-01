@@ -18,6 +18,7 @@ export const Header = () => (
         <Text style={estilos.textBoton}>Registrate</Text>
       </TouchableOpacity>
     </View>
+    
   </View>
 );
 export const Footer = () => (

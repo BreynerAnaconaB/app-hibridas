@@ -9,7 +9,7 @@ export default function TabLayout() {
       <Header />
 
       <View style={{ flex: 1 }}>
-        <Tabs screenOptions={{ headerShown: false }}>
+        <Tabs screenOptions={{ headerShown: false, tabBarStyle: { display: 'none' },}}>
             <Tabs.Screen name="index" options={{ title: 'Tareas' }} />
         </Tabs>
       </View>
