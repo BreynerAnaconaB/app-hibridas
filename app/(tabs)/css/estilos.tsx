@@ -63,10 +63,15 @@ const estilos = StyleSheet.create({
         fontWeight: 'bold'
     },
     linkText: {
-        marginTop: 15,
-        color: 'blue',
-        fontSize: 14,
-        textDecorationLine: 'underline'
+       borderColor: 'gray',
+       borderWidth: 1,
+       color: 'gray',
+       marginTop: 15,
+       fontSize: 14,
+       padding: 10,
+       borderRadius: 10,
+       width: '100%',
+       textAlign: 'center'
     },
     itemContainer: {
         paddingVertical: 20,
@@ -90,7 +95,21 @@ const estilos = StyleSheet.create({
         marginTop: 5,
         alignItems: 'center',
         width: 80
-    }
+    },
+    botonForgot: {
+        marginTop: 10,
+        backgroundColor: '#f0f0f0',
+        borderRadius: 10,
+        padding: 12,
+        width: '90%',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#6f6f6f',
+    },
+    textForgot: {
+        fontSize: 14,
+        color: 'black', 
+    },
 });
 
 export default estilos;

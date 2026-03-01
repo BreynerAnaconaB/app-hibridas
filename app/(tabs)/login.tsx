@@ -44,8 +44,12 @@ export default function Login() {
                     <Text style={estilos.withetext}>ENTRAR</Text>
                 </TouchableOpacity>
 
+                <TouchableOpacity style={estilos.botonForgot} onPress={manejarLogin}>
+                    <Text style={estilos.textForgot}>Olvidaste tu contraseña?</Text>
+                </TouchableOpacity>
+
                 <TouchableOpacity onPress={() => router.push("/register")}>
-                    <Text style={estilos.linkText}>No tienes cuenta? Regístrate</Text>
+                    <Text style={estilos.linkText}>Crear cuenta nueva</Text>
                 </TouchableOpacity>
             </View>
         </View>
