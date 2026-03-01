@@ -1,10 +1,34 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import { Text } from "@react-navigation/elements";
+import { FlatList, View } from "react-native";
+import estilos from "../css/estilos";
 
-export default function inicio() {
+
+interface Introduccion{
+  title:string,
+  text:string,
+}
+
+const task: Introduccion[] = [{
+  title:"Bañarme",
+  text: "hola pepito",
+}];
+
+
+function renderItem({item}:{item:Introduccion}){
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Gary es gay</Text>
-    </View>
+  <View style={estilos.itemContainer}>
+    <Text style={estilos.text}>{item.title}</Text>
+  </View>
   );
+}
+
+export default function informacion(){
+  return(<View>
+   <FlatList<Introduccion>
+    data={task}
+    renderItem={renderItem}
+    keyExtractor={(item) => item.title}
+/>
+</View>)
+  
 }
