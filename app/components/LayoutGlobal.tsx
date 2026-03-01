@@ -26,6 +26,9 @@ export const Header = () => {
 
                 {esEscritorio ? (
                     <View style={estilos.containerBotonesHorizontal}>
+                        <TouchableOpacity style={estilos.btnNav} onPress={() => router.push ('/tienda')}>
+                            <Text style={estilos.textBotonNav}>Nuestra tienda</Text>
+                        </TouchableOpacity>
                         <TouchableOpacity style={estilos.btnNav} onPress={() => router.push('/servicios')}>
                             <Text style={estilos.textBotonNav}>Servicios</Text>
                         </TouchableOpacity>
@@ -50,6 +53,9 @@ export const Header = () => {
 
             {!esEscritorio && isOpen && (
                 <View style={estilos.navMenuVertical}>
+                    <TouchableOpacity style={estilos.navLink} onPress={() => navegarYCerrar('/tienda')}>
+                        <Text style={estilos.textBotonNav}>Visita nuestra tienda</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity style={estilos.navLink} onPress={() => navegarYCerrar('/servicios')}>
                         <Text style={estilos.textBotonNav}>Servicios</Text>
                     </TouchableOpacity>
