@@ -1,44 +1,72 @@
 import { useRouter } from 'expo-router';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import estilos from './estilos-LayoutGlobal';
 
 export const Header = () => {
-  const router = useRouter(); 
+    const router = useRouter(); 
+    const { width } = useWindowDimensions();
+    const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <View style={estilos.header}>
-        <TouchableOpacity style={estilos.text} onPress={() => router.push('/')}>
-            <Text style={estilos.text}>App-Hibridas</Text>
-        </TouchableOpacity>
-      
-      <View style={estilos.containerBotones}>
-        <TouchableOpacity 
-          style={estilos.botonesHeader}
-          onPress={() => router.push('/login')} 
-        >
-          <Text style={estilos.textBoton}>Iniciar sesión</Text>
-        </TouchableOpacity>
+    const esEscritorio = width > 768;
 
-        <TouchableOpacity 
-          style={estilos.botonesHeader}
-          onPress={() => router.push('/servicios')} 
-        >
-          <Text style={estilos.textBoton}>Consulta servicios</Text>
-        </TouchableOpacity>
+    const navegarYCerrar = (ruta: any) => {
+        setIsOpen(false);
+        router.push(ruta);
+    };
 
-        <TouchableOpacity 
-          style={estilos.botonesHeader}
-          onPress={() => router.push('/register')} 
-        >
-          <Text style={estilos.textBoton}>Regístrate</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+    return (
+        <View style={estilos.header}>
+            <View style={estilos.headerContainer}>
+                <TouchableOpacity onPress={() => router.push('/')}>
+                    <Text style={estilos.logoText}>
+                        Tec<Text style={estilos.logoSpan}>Nano</Text>
+                    </Text>
+                </TouchableOpacity>
+
+                {esEscritorio ? (
+                    <View style={estilos.containerBotonesHorizontal}>
+                        <TouchableOpacity style={estilos.btnNav} onPress={() => router.push('/servicios')}>
+                            <Text style={estilos.textBotonNav}>Servicios</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={estilos.btnNav} onPress={() => router.push('/login')}>
+                            <Text style={estilos.textBotonNav}>Iniciar Sesion</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={estilos.btnNav} onPress={() => router.push('/register')}>
+                            <Text style={estilos.textBotonNav}>Registrate</Text>
+                        </TouchableOpacity>
+                    </View>
+                ) : (
+                    <TouchableOpacity 
+                        style={estilos.menuToggle} 
+                        onPress={() => setIsOpen(!isOpen)}
+                    >
+                        <View style={estilos.hamburguesaLine} />
+                        <View style={estilos.hamburguesaLine} />
+                        <View style={estilos.hamburguesaLine} />
+                    </TouchableOpacity>
+                )}
+            </View>
+
+            {!esEscritorio && isOpen && (
+                <View style={estilos.navMenuVertical}>
+                    <TouchableOpacity style={estilos.navLink} onPress={() => navegarYCerrar('/servicios')}>
+                        <Text style={estilos.textBotonNav}>Servicios</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={estilos.navLink} onPress={() => navegarYCerrar('/login')}>
+                        <Text style={estilos.textBotonNav}>Iniciar Sesion</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={estilos.navLink} onPress={() => navegarYCerrar('/register')}>
+                        <Text style={[estilos.textBotonNav]}>Registrate</Text>
+                    </TouchableOpacity>
+                </View>
+            )}
+        </View>
+    );
 };
 
 export const Footer = () => (
-  <View style={estilos.footer}>
-    <Text style={estilos.textSmall}>Desarrollado por Juliano y Breyner</Text>
-  </View>
+    <View style={estilos.footer}>
+        <Text style={estilos.textSmall}>Desarrollado por Juliano y Breyner</Text>
+    </View>
 );
