@@ -43,20 +43,22 @@ const estilos = StyleSheet.create({
         fontWeight: 800,
         fontSize: 40,
         borderRadius: '20%',
-        marginTop:'2%',
-        color: "#000000",
-        flexDirection:'row',
+        marginTop: '2%',
+        color: "#f7f2f2",
+        flexDirection: 'row',
         justifyContent: 'center',
         padding: 20,
-        margin:30
+        paddingLeft: 20,
+        margin: 30
     },
 
     textIndex: {
-        fontSize: 26,
-        marginLeft:20,
+        flex: 9,
+        fontSize: 24,
+        marginLeft: 20,
         fontFamily: 'sans-serif-medium',
         fontWeight: 400,
-        color: '#0d0d0e',
+        color: '#ffffff',
         maxWidth: 500,
         marginTop: 0,
         padding: 30,
@@ -69,45 +71,46 @@ const estilos = StyleSheet.create({
 
     },
     ContainerImg: {
-      width:400,
-      height:300,
-      resizeMode:'contain'
+        width: 400,
+        height: 300,
+        resizeMode: 'contain'
     },
+
     Container: {
-          backgroundColor: '#ffffff',
-        borderRadius: 10,
-        padding: 10,
-        margin: 27,
+        backgroundColor: 'white',
+        borderRadius: 1,
+        padding: -12,
+        margin: 10,
         flex: 1,
-    
-        justifyContent:'center',
-        alignItems:'baseline',
+
+        alignItems: 'center',
+        justifyContent: 'center',
 
         shadowColor: '#a0a0a0',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.05,
         shadowRadius: 10,
-        elevation: 2,
+        elevation: 1,
     },
 
-    ContainerInfo:{
-        
-            backgroundColor: '#8f8f8f',
-            width:200,
-            height:400,
-           borderRadius: 10,
-           padding: '10%',
-           margin: '8%',
-           marginTop:'2%',
+    ContainerInfo: {
 
-            flex: 2,
-        justifyContent:"center",
+        backgroundColor: '#565656',
+        width: '90%',
+        maxWidth: 300,
+        height: 300,
+        borderRadius: 10,
+        padding: '10%',
+        margin: 15,
+        marginTop: '5%',
+
+        flex: 2,
+        justifyContent: "center",
+        alignSelf: 'center',
         alignItems: 'center',
 
-        shadowColor: '#000000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.05,
-        shadowRadius: 10,
+        shadowOpacity: 0.1,
+        shadowColor: '#000',
         elevation: 2,
     },
 
@@ -116,6 +119,63 @@ const estilos = StyleSheet.create({
         fontWeight: '700',
         color: '#ffffff',
         marginBottom: 8,
+    },
+
+    contenedorBoton: {
+        alignSelf: 'flex-end',
+        backgroundColor: '#757474',
+        borderRadius: 90,
+          
+
+        paddingHorizontal: 40,
+        paddingVertical: 20,
+
+        marginRight: 20,
+        marginTop: 4,
+        marginBottom: 10,
+    },
+    botonIndex: {
+        fontFamily: 'sans-serif-medium',
+        fontWeight: '300',
+        borderColor: 'red',
+        backgroundColor: '#ffffffd8',
+        color: '#0000',
+        borderRadius: 10
+    },
+
+    textBotonIndex: {
+        fontFamily: 'sans-serif-condensed',
+        fontWeight: 900,
+        fontSize: 20,
+        marginTop: '-2%',
+        color: "#ffffff",
+        flexDirection: 'row',
+        justifyContent: 'center',
+        margin: 1,
+        width: '110%',
+        padding: '2%'
+    },
+
+    imgCard: {
+        backgroundColor: "#fff",
+        position: 'absolute',
+        top: 30,
+        left: '30%',
+        right: 0,
+        bottom: 0,
+        width: '70%',
+        height: '70%',
+    },
+
+    gradientLayer: {
+        flex: 1,
+        alignItems: 'flex-start',
+        padding: 5,
+        width: '110%',
+        maxHeight: '90%',
+        paddingInline: '10%',
+        borderRadius: 0
+
     }
 
 
