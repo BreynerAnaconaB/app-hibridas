@@ -14,7 +14,7 @@ export default function Login() {
                 <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', marginBottom: 20 }}>TecNano</Text>
 
                 <TextInput 
-                    style={estilos.inputElegante} 
+                    style={estilos.inputBlanco} 
                     placeholder="Usuario o correo electrónico"
                     placeholderTextColor="#888"
                     value={usuario}
@@ -22,7 +22,7 @@ export default function Login() {
                 />
 
                 <TextInput 
-                    style={estilos.inputElegante} 
+                    style={estilos.inputBlanco} 
                     placeholder="Contraseña"
                     placeholderTextColor="#888"
                     secureTextEntry

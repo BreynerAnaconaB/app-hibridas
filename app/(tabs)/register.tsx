@@ -11,11 +11,11 @@ export default function Register() {
             <View style={estilos.tarjetaBlanca}>
                 <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 5 }}>Regístrate</Text>
 
-                <TextInput style={estilos.inputElegante} placeholder="Nombre completo" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputElegante} placeholder="Nombre de usuario" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputElegante} placeholder="Correo electrónico" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputElegante} placeholder="Número de teléfono" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputElegante} placeholder="Contraseña" secureTextEntry placeholderTextColor="#888" />
+                <TextInput style={estilos.inputBlanco} placeholder="Nombre completo" placeholderTextColor="#888" />
+                <TextInput style={estilos.inputBlanco} placeholder="Nombre de usuario" placeholderTextColor="#888" />
+                <TextInput style={estilos.inputBlanco} placeholder="Correo electrónico" placeholderTextColor="#888" />
+                <TextInput style={estilos.inputBlanco} placeholder="Número de teléfono" placeholderTextColor="#888" />
+                <TextInput style={estilos.inputBlanco} placeholder="Contraseña" secureTextEntry placeholderTextColor="#888" />
 
                 <TouchableOpacity style={[estilos.botonGrisOscuro, { marginTop: 20 }]} onPress={() => router.replace("/login")}>
                     <Text style={estilos.textoBlanco}>Registrarte</Text>

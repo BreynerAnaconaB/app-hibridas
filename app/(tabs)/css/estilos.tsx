@@ -19,8 +19,8 @@ const estilos = StyleSheet.create({
         shadowRadius: 3,
         elevation: 3,
     },
-    inputElegante: {
-        backgroundColor: 'pink',
+    inputBlanco: {
+        backgroundColor: '#FFFFFF',
         borderWidth: 1,
         borderColor: '#DDD',
         borderRadius: 6,
