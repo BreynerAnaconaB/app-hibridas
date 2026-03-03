@@ -55,7 +55,7 @@ const estilos = StyleSheet.create({
     textIndex: {
         flex: 9,
         fontSize: 24,
-        marginLeft: 20,
+        marginLeft: -10,
         fontFamily: 'sans-serif-medium',
         fontWeight: 500,
         color: '#ffffff',
@@ -127,12 +127,13 @@ const estilos = StyleSheet.create({
     imgCard: {
         backgroundColor: "#fff",
         position: 'absolute',
-        top: '10%',
+        top: '1%',
         left: '30%',
         right: 0,
         bottom: 0,
         width: '70%',
-        height: '90%',
+        height: '98%',
+        borderRadius:10
     },
 
     gradientLayer: {

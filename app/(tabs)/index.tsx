@@ -17,14 +17,14 @@ interface Fotos_texto {
 }
 
 const task: Introduccion[] = [{
-  title: "BIENVENIDO A TECNANO",
-  text: "Elevamos el estándar de tu infraestructura digital con soluciones de hardware de alto rendimiento y arquitectura de software a medida.",
+  title: "TECNANO",
+  text: "Elevamos el estándar de tu infraestructura digital con soluciones de hardware de alto rendimiento",
 }];
 
 const datosIndex: Fotos_texto[] = [{
   title: "COMPONENTES",
   imagen: "https://www.muycomputer.com/wp-content/uploads/2021/10/placa-base.jpg",
-  texto:'popopopoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo'
+  texto:'Equipos de ultima tecnologia '
 
 },
 {
@@ -60,8 +60,8 @@ function renderItem({ item }: { item: Introduccion }) {
           end={{ x: 0, y: 9 }}
           style={estilos.gradientLayer}
 
-        >
 
+        >
           <Text style={[estilos.Tituloindex]}>{item.title}</Text>
           <Text style={[estilos.textIndex]}>{item.text}</Text>
         </LinearGradient>
@@ -75,6 +75,7 @@ function renderItem({ item }: { item: Introduccion }) {
 
 function renderDetalles_producto({ item }: { item: Fotos_texto }) {
   return (
+      
     <TouchableOpacity style={estilos.ContainerInfo}
     activeOpacity={0.7}>
       <View >
@@ -82,7 +83,6 @@ function renderDetalles_producto({ item }: { item: Fotos_texto }) {
         <Text style={[estilos.textIndex]}>{item.texto}</Text>
       </View>
     </TouchableOpacity>
-
   );
 }
 
