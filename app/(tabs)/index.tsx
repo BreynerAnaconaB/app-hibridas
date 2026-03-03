@@ -48,7 +48,7 @@ function renderItem({ item }: { item: Introduccion }) {
   return (
     <View>
       <View style={estilos.Container}>
-        <Image source={require('./assets/Tecnano.jpeg')}
+        <Image source={require('./assets/indexiImagen.jpg')}
           style={estilos.imgCard}
           resizeMode="cover"
 
@@ -75,9 +75,11 @@ function renderItem({ item }: { item: Introduccion }) {
 
 function renderDetalles_producto({ item }: { item: Fotos_texto }) {
   return (
-    <TouchableOpacity style={estilos.ContainerInfo}>
+    <TouchableOpacity style={estilos.ContainerInfo}
+    activeOpacity={0.7}>
       <View >
         <Text style={estilos.tituloTarjeta}>{item.title}</Text>
+        <Text style={[estilos.textIndex]}>{item.texto}</Text>
       </View>
     </TouchableOpacity>
 

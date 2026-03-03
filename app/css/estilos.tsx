@@ -95,23 +95,26 @@ const estilos = StyleSheet.create({
 
     ContainerInfo: {
 
-        backgroundColor: '#565656',
-        width: '90%',
-        maxWidth: '100%',
-        height: 300,
-        borderRadius: 10,
-        padding: '30%',
-        margin: 220,
-        marginTop: '5%',
+       backgroundColor: '#565656',
+    width: '90%',
+    maxWidth: 400, 
+    height: 300,
+    borderRadius: 10,
+    
+    padding: 20, 
+    
+    
+    marginVertical: 15, 
+    
+    
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
 
-        flex: 2,
-        justifyContent: 'center',
-        alignSelf: 'center',
-        alignItems: 'center',
-
-        shadowOpacity: 0.1,
-        shadowColor: '#000',
-        elevation: 2,
+    
+    shadowOpacity: 0.1,
+    shadowColor: '#000',
+    elevation: 2,
     },
 
     tituloTarjeta: {
@@ -124,12 +127,12 @@ const estilos = StyleSheet.create({
     imgCard: {
         backgroundColor: "#fff",
         position: 'absolute',
-        top: '25%',
+        top: '10%',
         left: '30%',
         right: 0,
         bottom: 0,
         width: '70%',
-        height: '70%',
+        height: '90%',
     },
 
     gradientLayer: {
