@@ -15,6 +15,7 @@ export default function TabLayout() {
         <Tabs.Screen name="index" options={{ title: 'Tareas' }} />
         <Tabs.Screen name="login" options={{ href: null }} /> 
         <Tabs.Screen name="register" options={{ href: null }} />
+        <Tabs.Screen name="store" options={{ href: null }} />
       </Tabs>
 
       {!esPantallaAuth && <Footer />}

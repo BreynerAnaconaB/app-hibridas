@@ -8,48 +8,43 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const router = useRouter();
 
-    const manejarLogin = () => {
-        if (usuario === "admin" && password === "123") {
-            router.replace("/(tabs)"); 
-        }
-    };
-
     return (
-        <View style={estilos.container}>
-            <View style={estilos.recuadroLogin}>
-                <Text style={estilos.Titulo}>Iniciar sesion</Text>
+        <View style={estilos.pantallaFondo}>
+            <View style={estilos.tarjetaBlanca}>
+                <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', marginBottom: 20 }}>TecNano</Text>
 
-                <View style={estilos.inputcontainer}>
-                    <TextInput 
-                        style={estilos.textinput} 
-                        placeholder="Usuario"
-                        placeholderTextColor="#999"
-                        value={usuario}
-                        onChangeText={setUsuario}
-                    />
-                </View>
+                <TextInput 
+                    style={estilos.inputElegante} 
+                    placeholder="Usuario o correo electrónico"
+                    placeholderTextColor="#888"
+                    value={usuario}
+                    onChangeText={setUsuario}
+                />
 
-                <View style={estilos.inputcontainer}>
-                    <TextInput 
-                        style={estilos.textinput} 
-                        placeholder="Contraseña"
-                        placeholderTextColor="#999"
-                        secureTextEntry={true} 
-                        value={password}
-                        onChangeText={setPassword}
-                    />
-                </View>
+                <TextInput 
+                    style={estilos.inputElegante} 
+                    placeholder="Contraseña"
+                    placeholderTextColor="#888"
+                    secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
+                />
 
-                <TouchableOpacity style={estilos.boton} onPress={manejarLogin}>
-                    <Text style={estilos.withetext}>ENTRAR</Text>
+                <TouchableOpacity style={estilos.botonGrisOscuro} onPress={() => router.replace("/(tabs)")}>
+                    <Text style={estilos.textoBlanco}>Entrar</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.botonForgot} onPress={manejarLogin}>
-                    <Text style={estilos.textForgot}>Olvidaste tu contraseña?</Text>
+                <TouchableOpacity onPress={() => {}}>
+                    <Text style={{ color: '#666', textAlign: 'center', marginTop: 15, fontSize: 14 }}>Olvidaste tu contraseña?</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => router.push("/register")}>
-                    <Text style={estilos.linkText}>Crear cuenta nueva</Text>
+                <View style={estilos.separador} />
+
+                <TouchableOpacity 
+                    style={estilos.botonGrisClaro} 
+                    onPress={() => router.push("/register")}
+                >
+                    <Text style={estilos.textoNegro}>Crear cuenta nueva</Text>
                 </TouchableOpacity>
             </View>
         </View>

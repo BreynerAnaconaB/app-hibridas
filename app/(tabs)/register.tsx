@@ -1,62 +1,28 @@
 import { useRouter } from "expo-router";
-import React, { useState } from "react";
+import React from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import estilos from "./css/estilos";
 
-export default function Login() {
-    const [usuario, setUsuario] = useState("");
-    const [password, setPassword] = useState("");
+export default function Register() {
     const router = useRouter();
 
-    const manejarLogin = () => {
-        if (usuario === "admin" && password === "123") {
-            router.replace("/(tabs)"); 
-        }
-    };
-
     return (
-        <View style={estilos.container}>
-            <View style={estilos.recuadroLogin}>
-                <Text style={estilos.Titulo}>Registrate</Text>
+        <View style={estilos.pantallaFondo}>
+            <View style={estilos.tarjetaBlanca}>
+                <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 5 }}>Regístrate</Text>
 
-                <View style={estilos.inputcontainer}>
-                    <TextInput 
-                        style={estilos.textinput} 
-                        placeholder="Ingresa tu nombre"
-                        placeholderTextColor="#999"
-                    />
-                </View>
+                <TextInput style={estilos.inputElegante} placeholder="Nombre completo" placeholderTextColor="#888" />
+                <TextInput style={estilos.inputElegante} placeholder="Nombre de usuario" placeholderTextColor="#888" />
+                <TextInput style={estilos.inputElegante} placeholder="Correo electrónico" placeholderTextColor="#888" />
+                <TextInput style={estilos.inputElegante} placeholder="Número de teléfono" placeholderTextColor="#888" />
+                <TextInput style={estilos.inputElegante} placeholder="Contraseña" secureTextEntry placeholderTextColor="#888" />
 
-                <View style={estilos.inputcontainer}>
-                    <TextInput 
-                        style={estilos.textinput} 
-                        placeholder="Ingresa tu correo"
-                        placeholderTextColor="#999"
-                    />
-                </View>
-
-                <View style={estilos.inputcontainer}>
-                    <TextInput 
-                        style={estilos.textinput} 
-                        placeholder="Ingresa tu numero de telefono"
-                        placeholderTextColor="#999"
-                    />
-                </View>
-
-                <View style={estilos.inputcontainer}>
-                    <TextInput 
-                        style={estilos.textinput} 
-                        placeholder="Ingresa tu contraseña"
-                        placeholderTextColor="#999"
-                    />
-                </View>
-
-                <TouchableOpacity style={estilos.boton} onPress={manejarLogin}>
-                    <Text style={estilos.withetext}>REGISTRATE</Text>
+                <TouchableOpacity style={[estilos.botonGrisOscuro, { marginTop: 20 }]} onPress={() => router.replace("/login")}>
+                    <Text style={estilos.textoBlanco}>Registrarte</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => router.push("/login")}>
-                    <Text style={estilos.linkText}>Ya tengo una cuenta </Text>
+                    <Text style={{ color: '#444', textAlign: 'center', marginTop: 15, fontWeight: '600' }}>Ya tienes una cuenta?</Text>
                 </TouchableOpacity>
             </View>
         </View>
