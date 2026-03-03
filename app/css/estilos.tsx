@@ -46,10 +46,10 @@ const estilos = StyleSheet.create({
         marginTop: '2%',
         color: "#f7f2f2",
         flexDirection: 'row',
-        justifyContent: 'center',
-        padding: 20,
-        paddingLeft: 20,
-        margin: 30
+        justifyContent: 'flex-start',
+        padding: 10,
+        paddingLeft: '1%',
+        margin: 5
     },
 
     textIndex: {
@@ -57,11 +57,11 @@ const estilos = StyleSheet.create({
         fontSize: 24,
         marginLeft: 20,
         fontFamily: 'sans-serif-medium',
-        fontWeight: 400,
+        fontWeight: 500,
         color: '#ffffff',
         maxWidth: 500,
         marginTop: 0,
-        padding: 30,
+        padding:40,
 
 
     },
@@ -78,13 +78,13 @@ const estilos = StyleSheet.create({
 
     Container: {
         backgroundColor: 'white',
-        borderRadius: 1,
-        padding: -12,
-        margin: 10,
+        borderRadius: 20,
+        padding: -10,
+        margin: 30,
         flex: 1,
 
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'flex-start',
+        justifyContent:'flex-start',
 
         shadowColor: '#a0a0a0',
         shadowOffset: { width: 0, height: 2 },
@@ -97,15 +97,15 @@ const estilos = StyleSheet.create({
 
         backgroundColor: '#565656',
         width: '90%',
-        maxWidth: 300,
+        maxWidth: '100%',
         height: 300,
         borderRadius: 10,
-        padding: '10%',
-        margin: 15,
+        padding: '30%',
+        margin: 220,
         marginTop: '5%',
 
         flex: 2,
-        justifyContent: "center",
+        justifyContent: 'center',
         alignSelf: 'center',
         alignItems: 'center',
 
@@ -121,45 +121,10 @@ const estilos = StyleSheet.create({
         marginBottom: 8,
     },
 
-    contenedorBoton: {
-        alignSelf: 'flex-end',
-        backgroundColor: '#757474',
-        borderRadius: 90,
-          
-
-        paddingHorizontal: 40,
-        paddingVertical: 20,
-
-        marginRight: 20,
-        marginTop: 4,
-        marginBottom: 10,
-    },
-    botonIndex: {
-        fontFamily: 'sans-serif-medium',
-        fontWeight: '300',
-        borderColor: 'red',
-        backgroundColor: '#ffffffd8',
-        color: '#0000',
-        borderRadius: 10
-    },
-
-    textBotonIndex: {
-        fontFamily: 'sans-serif-condensed',
-        fontWeight: 900,
-        fontSize: 20,
-        marginTop: '-2%',
-        color: "#ffffff",
-        flexDirection: 'row',
-        justifyContent: 'center',
-        margin: 1,
-        width: '110%',
-        padding: '2%'
-    },
-
     imgCard: {
         backgroundColor: "#fff",
         position: 'absolute',
-        top: 30,
+        top: '25%',
         left: '30%',
         right: 0,
         bottom: 0,
@@ -171,10 +136,11 @@ const estilos = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-start',
         padding: 5,
-        width: '110%',
-        maxHeight: '90%',
+        width: '100%',
+        maxHeight: '100%',
         paddingInline: '10%',
-        borderRadius: 0
+        borderRadius: 20
+        
 
     }
 
