@@ -1,6 +1,6 @@
 import { Text } from "@react-navigation/elements";
 import { LinearGradient } from 'expo-linear-gradient';
-import { FlatList, Image, ScrollView, TouchableOpacity, useWindowDimensions, View } from "react-native";
+import { FlatList, Image, TouchableOpacity, useWindowDimensions, View } from "react-native";
 import estilos from "../css/estilos";
 
 
@@ -69,7 +69,7 @@ function RenderItem({ item }: { item: Introduccion }) {
 
         >
           <Text style={[estilos.Tituloindex]}>{item.title}</Text>
-          <Text style={[estilos.textIndex, {fontSize: margenDinamica}]}>{item.text}</Text>
+          <Text style={[estilos.textIndex]}>{item.text}</Text>
         </LinearGradient>
 
 
@@ -102,23 +102,24 @@ export default function paginaPrincipal() {
   const columnas = width < 700 ? 1 : 2;
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={{ flex: 1 }}>
-        <FlatList <Introduccion>
+    <FlatList
+      data={datosIndex}
+      renderItem={renderDetalles_producto}
+      keyExtractor={(item) => item.title}
+      key={columnas}
+      horizontal={columnas === 2}
+
+
+      ListHeaderComponent={
+        <FlatList
           data={task}
           renderItem={({ item }) => <RenderItem item={item} />}
           keyExtractor={(item) => item.title}
+          scrollEnabled={false} 
         />
-
-
-        <FlatList<Fotos_texto>
-          data={datosIndex}
-          renderItem={renderDetalles_producto}
-          keyExtractor={(item) => item.title}
-          key={columnas} 
-          horizontal={columnas === 2}
-        />
+      }
+    />
       </View>
-    </ScrollView>
   )
 }

@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FlatList, ListRenderItem, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import estilos from '../css/estilos';
-const styles = estilos as any; 
+import estilos from '../css/estilosTienda';
 
 interface Product {
     id: string;
@@ -30,34 +29,31 @@ export default function PantallaTienda() {
         : products.filter(p => p.categoria === categoriaSeleccionada    );
 
     const renderProduct: ListRenderItem<Product> = ({ item }) => (
-        <View style={styles.card || { backgroundColor: '#fff', padding: 10, margin: 5, borderRadius: 10, flex: 1 }}>
-            <View style={{ backgroundColor: '#f0f0f0', width: '100%', height: 80, borderRadius: 10, justifyContent: 'center', alignItems: 'center', marginBottom: 10 }}></View>
-            <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 12 }} numberOfLines={1}>{item.nombre}</Text>
-            <Text style={styles.priceText || { color: 'green', fontWeight: 'bold' }}>{item.precio}</Text>
+        <View style={estilos.card}>
+            <View style={estilos.card2}></View>
+            <Text style={estilos.nombreItem}>{item.nombre}</Text>
+            <Text style={estilos.itemPrecio}>{item.precio}</Text>
             <TouchableOpacity 
                 onPress={() => setCart(cart + 1)}
-                style={[styles.boton, { width: '100%', padding: 5, marginTop: 5 }]}
+                style={estilos.botonAgregar}
             >
-                <Text style={styles.withetext}>Agregar</Text>
+                <Text>Agregar</Text>
             </TouchableOpacity>
         </View>
     );
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#f8f9fa' }}>
+        <SafeAreaView style={estilos.vistaCategorias}>
 
-            <View style={{ height: 60, marginVertical: 10 }}>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 15, alignItems: 'center' }}>
+            <View style={estilos.vistaGeneral}>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={estilos.containerCategorias}>
                     {categories.map(cat => (
                         <TouchableOpacity
                             key={cat}
                             onPress={() => setCategoriaSeleccionada(cat)}
-                            style={[
-                                styles.categoryBadge || { padding: 10, backgroundColor: '#ddd', borderRadius: 20, marginRight: 10 },
-                                categoriaSeleccionada === cat && (styles.categoryActive || { backgroundColor: '#333' })
-                            ]}
+                            style={estilos.categorias}
                         >
-                            <Text style={{ color: categoriaSeleccionada === cat ? '#fff' : '#333', fontWeight: 'bold' }}>{cat}</Text>
+                            <Text style={estilos.cuadroCategoria}>{cat}</Text>
                         </TouchableOpacity>
                     ))}
                 </ScrollView>

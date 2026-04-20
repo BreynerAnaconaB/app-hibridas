@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const estilos = StyleSheet.create({
+const estilosLoginRegister = StyleSheet.create({
     pantallaFondo: {
         flex: 1,
         backgroundColor: '#F2F3F5', 
@@ -61,7 +61,30 @@ const estilos = StyleSheet.create({
         borderBottomColor: '#DADDE1',
         marginVertical: 20,
         width: '100%',
+    },
+    noCuentaBoton: {
+        color: '#444', 
+        textAlign: 'center', 
+        marginTop: 15, 
+        fontWeight: '600'
+    },
+    nombrePagina: {
+        fontSize: 28, 
+        fontWeight: 'bold', 
+        textAlign: 'center', 
+        marginBottom: 20
+    },
+    olvidarContraseña: {
+        color: '#666', 
+        textAlign: 'center', 
+        marginTop: 15, 
+        fontSize: 14
+    },
+    registrate: {
+        fontSize: 24, 
+        fontWeight: 'bold', 
+        marginBottom: 5
     }
 });
 
-export default estilos;
+export default estilosLoginRegister;

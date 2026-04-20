@@ -1,41 +1,24 @@
+import { LoginInput } from "@/components/LoginInput";
 import { useRouter } from "expo-router";
-import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import estilos from "./css/estilos";
+import { Text, TouchableOpacity, View } from "react-native";
+import estilos from "../css/estilosLoginRegister";
 
 export default function Login() {
-    const [usuario, setUsuario] = useState("");
-    const [password, setPassword] = useState("");
     const router = useRouter();
 
     return (
         <View style={estilos.pantallaFondo}>
             <View style={estilos.tarjetaBlanca}>
-                <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', marginBottom: 20 }}>TecNano</Text>
-
-                <TextInput 
-                    style={estilos.inputBlanco} 
-                    placeholder="Usuario o correo electrónico"
-                    placeholderTextColor="#888"
-                    value={usuario}
-                    onChangeText={setUsuario}
-                />
-
-                <TextInput 
-                    style={estilos.inputBlanco} 
-                    placeholder="Contraseña"
-                    placeholderTextColor="#888"
-                    secureTextEntry
-                    value={password}
-                    onChangeText={setPassword}
-                />
+                <Text style={estilos.nombrePagina}>TecNano</Text>
+                
+                <LoginInput />
 
                 <TouchableOpacity style={estilos.botonGrisOscuro} onPress={() => router.replace("/(tabs)")}>
                     <Text style={estilos.textoBlanco}>Entrar</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ color: '#666', textAlign: 'center', marginTop: 15, fontSize: 14 }}>Olvidaste tu contraseña?</Text>
+                    <Text style={estilos.olvidarContraseña}>Olvidaste tu contraseña?</Text>
                 </TouchableOpacity>
 
                 <View style={estilos.separador} />

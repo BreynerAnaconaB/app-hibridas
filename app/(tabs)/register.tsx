@@ -1,7 +1,7 @@
+import { RegisterInput } from "@/components/RegisterInput";
 import { useRouter } from "expo-router";
-import React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import estilos from "./css/estilos";
+import { Text, TouchableOpacity, View } from "react-native";
+import estilos from "../css/estilosLoginRegister";
 
 export default function Register() {
     const router = useRouter();
@@ -9,20 +9,16 @@ export default function Register() {
     return (
         <View style={estilos.pantallaFondo}>
             <View style={estilos.tarjetaBlanca}>
-                <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 5 }}>Regístrate</Text>
+                <Text style={estilos.registrate}>Regístrate</Text>
 
-                <TextInput style={estilos.inputBlanco} placeholder="Nombre completo" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputBlanco} placeholder="Nombre de usuario" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputBlanco} placeholder="Correo electrónico" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputBlanco} placeholder="Número de teléfono" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputBlanco} placeholder="Contraseña" secureTextEntry placeholderTextColor="#888" />
+                <RegisterInput />
 
-                <TouchableOpacity style={[estilos.botonGrisOscuro, { marginTop: 20 }]} onPress={() => router.replace("/login")}>
+                <TouchableOpacity style={estilos.botonGrisOscuro} onPress={() => router.replace("/login")}>
                     <Text style={estilos.textoBlanco}>Registrarte</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => router.push("/login")}>
-                    <Text style={{ color: '#444', textAlign: 'center', marginTop: 15, fontWeight: '600' }}>Ya tienes una cuenta?</Text>
+                    <Text style={estilos.noCuentaBoton}>Ya tienes una cuenta?</Text>
                 </TouchableOpacity>
             </View>
         </View>
