@@ -76,7 +76,7 @@ const estilos = StyleSheet.create({
     height: 300,
     borderRadius: 20,
     margin: 20,
-    overflow: 'hidden', // 👈 IMPORTANTE
+    overflow: 'hidden', 
     position: 'relative'
     },
 

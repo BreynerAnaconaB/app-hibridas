@@ -21,16 +21,7 @@ export default function Login() {
                 <TouchableOpacity onPress={() => {}}>
                     <Text style={estilos.olvidarContraseña}>Olvidaste tu contraseña?</Text>
                 </TouchableOpacity>
-
-                <View style={estilos.separador} />
-
-                <TouchableOpacity 
-                    style={estilos.botonGrisClaro} 
-                    onPress={() => router.push("/register")}
-                >
-                    <Text style={estilos.textoNegro}>Crear cuenta nueva</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
+      </View>
+    </View>
+  );
 }
