@@ -1,75 +1,96 @@
-import React, { useState } from 'react';
-import { FlatList, ListRenderItem, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
-import estilos from '../css/estilos';
-const styles = estilos as any; 
+import React, { useEffect, useState } from "react";
+import {
+  FlatList, SafeAreaView, ScrollView, Text, View,
+} from "react-native";
+import AppButton from "../components/AppButton";
+import { useAuth } from "../../context/AuthContext";
+import { getProductos, Producto } from "../../services/api";
+import estilos from "../css/estilos";
 
-interface Product {
-    id: string;
-    nombre: string;
-    precio: string;
-    categoria: string;
-}
-
-const products: Product[] = [
-    { id: '1', nombre: 'Teclado mecanico', precio: '$129.900', categoria: 'Periféricos' },
-    { id: '2', nombre: 'Mouse Gamer', precio: '$129.900', categoria: 'Periféricos' },
-    { id: '3', nombre: 'Monitor 27"', precio: '$700.000', categoria: 'Pantallas' },
-    { id: '4', nombre: 'GeForce RTX 4070', precio: '$2.000.000', categoria: 'Componentes' },
-    { id: '5', nombre: 'Ryzen 7 5800X', precio: '$700.000', categoria: 'Componentes' },
-    { id: '6', nombre: 'RAM 32GB', precio: '$2.000.000', categoria: 'Componentes' },
-];
-
-const categories = ['Todos', 'Periféricos', 'Componentes', 'Pantallas'];
+const CATEGORIAS = ["Todos", "Periféricos", "Componentes", "Pantallas"];
 
 export default function PantallaTienda() {
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todos');
-    const [cart, setCart] = useState(0);
+  const { auth } = useAuth();
+  const [productos, setProductos] = useState<Producto[]>([]);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todos");
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState("");
 
-    const filteredProducts = categoriaSeleccionada === 'Todos' 
-        ? products 
-        : products.filter(p => p.categoria === categoriaSeleccionada    );
+  useEffect(() => {
+    if (!auth?.token) {
+      setError("Necesitás iniciar sesión para ver los productos");
+      setCargando(false);
+      return;
+    }
+    getProductos(auth.token)
+      .then(setProductos)
+      .catch((err) => setError(err.message))
+      .finally(() => setCargando(false));
+  }, [auth]);
 
-    const renderProduct: ListRenderItem<Product> = ({ item }) => (
-        <View style={styles.card || { backgroundColor: '#fff', padding: 10, margin: 5, borderRadius: 10, flex: 1 }}>
-            <View style={{ backgroundColor: '#f0f0f0', width: '100%', height: 80, borderRadius: 10, justifyContent: 'center', alignItems: 'center', marginBottom: 10 }}></View>
-            <Text style={{ fontWeight: 'bold', textAlign: 'center', fontSize: 12 }} numberOfLines={1}>{item.nombre}</Text>
-            <Text style={styles.priceText || { color: 'green', fontWeight: 'bold' }}>{item.precio}</Text>
-            <TouchableOpacity 
-                onPress={() => setCart(cart + 1)}
-                style={[styles.boton, { width: '100%', padding: 5, marginTop: 5 }]}
-            >
-                <Text style={styles.withetext}>Agregar</Text>
-            </TouchableOpacity>
-        </View>
-    );
+  const filtrados =
+    categoriaSeleccionada === "Todos"
+      ? productos
+      : productos.filter((p) => p.categoria === categoriaSeleccionada);
 
-    return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#f8f9fa' }}>
+  const renderProducto = ({ item }: { item: Producto }) => (
+    <View style={estilos.card}>
+      <View style={estilos.cardImagen} />
+      <Text style={estilos.cardNombre} numberOfLines={1}>
+        {item.nombre_producto}
+      </Text>
+      <Text style={estilos.cardPrecio}>
+        ${item.precio_producto.toLocaleString()}
+      </Text>
+      <AppButton
+        label="Agregar"
+        style={estilos.botonOscuro}
+        textStyle={estilos.textoBlanco}
+        onPress={() => {}}
+      />
+    </View>
+  );
 
-            <View style={{ height: 60, marginVertical: 10 }}>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 15, alignItems: 'center' }}>
-                    {categories.map(cat => (
-                        <TouchableOpacity
-                            key={cat}
-                            onPress={() => setCategoriaSeleccionada(cat)}
-                            style={[
-                                styles.categoryBadge || { padding: 10, backgroundColor: '#ddd', borderRadius: 20, marginRight: 10 },
-                                categoriaSeleccionada === cat && (styles.categoryActive || { backgroundColor: '#333' })
-                            ]}
-                        >
-                            <Text style={{ color: categoriaSeleccionada === cat ? '#fff' : '#333', fontWeight: 'bold' }}>{cat}</Text>
-                        </TouchableOpacity>
-                    ))}
-                </ScrollView>
-            </View>
+  if (cargando) return <Text style={estilos.cargandoTexto}>Cargando productos...</Text>;
+  if (error) return <Text style={estilos.errorTexto}>{error}</Text>;
 
-            <FlatList
-                data={filteredProducts}
-                renderItem={renderProduct}
-                keyExtractor={item => item.id}
-                numColumns={2}
-                contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: 100 }}
+  return (
+    <SafeAreaView style={estilos.tiendaFondo}>
+      <View style={{ height: 60, marginVertical: 10 }}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingHorizontal: 15, alignItems: "center" }}
+        >
+          {CATEGORIAS.map((cat) => (
+            <AppButton
+              key={cat}
+              label={cat}
+              onPress={() => setCategoriaSeleccionada(cat)}
+              style={[
+                estilos.categoriaBadge,
+                categoriaSeleccionada === cat && estilos.categoriaActiva,
+              ]}
+              textStyle={
+                categoriaSeleccionada === cat
+                  ? estilos.categoriaActivaTexto
+                  : estilos.categoriaBadgeTexto
+              }
             />
-        </SafeAreaView>
-    );
+          ))}
+        </ScrollView>
+      </View>
+
+      <FlatList
+        data={filtrados}
+        renderItem={renderProducto}
+        keyExtractor={(item) => String(item.id_producto)}
+        numColumns={2}
+        contentContainerStyle={{ paddingHorizontal: 10, paddingBottom: 100 }}
+        ListEmptyComponent={
+          <Text style={estilos.cargandoTexto}>No hay productos en esta categoría</Text>
+        }
+      />
+    </SafeAreaView>
+  );
 }

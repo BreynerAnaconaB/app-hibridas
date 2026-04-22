@@ -1,52 +1,77 @@
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import estilos from "./css/estilos";
+import { Alert, Text, TouchableOpacity, View } from "react-native";
+import AppButton from "../components/AppButton";
+import AppInput from "../components/AppInput";
+import { useAuth } from "../../context/AuthContext";
+import { login } from "../../services/api";
+import estilos from "../css/estilos";
 
 export default function Login() {
-    const [usuario, setUsuario] = useState("");
-    const [password, setPassword] = useState("");
-    const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cargando, setCargando] = useState(false);
+  const router = useRouter();
+  const { setAuth } = useAuth();
 
-    return (
-        <View style={estilos.pantallaFondo}>
-            <View style={estilos.tarjetaBlanca}>
-                <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', marginBottom: 20 }}>TecNano</Text>
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert("Error", "Completá todos los campos");
+      return;
+    }
+    try {
+      setCargando(true);
+      const data = await login(email, password);
+      setAuth({ token: data.token, email: data.email, nombre: data.nombre });
+      router.replace("/(tabs)");
+    } catch (err: any) {
+      Alert.alert("Error", err.message || "No se pudo iniciar sesión");
+    } finally {
+      setCargando(false);
+    }
+  };
 
-                <TextInput 
-                    style={estilos.inputBlanco} 
-                    placeholder="Usuario o correo electrónico"
-                    placeholderTextColor="#888"
-                    value={usuario}
-                    onChangeText={setUsuario}
-                />
+  return (
+    <View style={estilos.pantallaFondo}>
+      <View style={estilos.tarjetaBlanca}>
+        <Text style={estilos.tituloPantalla}>TecNano</Text>
 
-                <TextInput 
-                    style={estilos.inputBlanco} 
-                    placeholder="Contraseña"
-                    placeholderTextColor="#888"
-                    secureTextEntry
-                    value={password}
-                    onChangeText={setPassword}
-                />
+        <AppInput
+          style={estilos.input}
+          placeholder="Correo electrónico"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
+        <AppInput
+          style={estilos.input}
+          placeholder="Contraseña"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
 
-                <TouchableOpacity style={estilos.botonGrisOscuro} onPress={() => router.replace("/(tabs)")}>
-                    <Text style={estilos.textoBlanco}>Entrar</Text>
-                </TouchableOpacity>
+        <AppButton
+          label={cargando ? "Entrando..." : "Entrar"}
+          style={estilos.botonOscuro}
+          textStyle={estilos.textoBlanco}
+          onPress={handleLogin}
+          disabled={cargando}
+        />
 
-                <TouchableOpacity onPress={() => {}}>
-                    <Text style={{ color: '#666', textAlign: 'center', marginTop: 15, fontSize: 14 }}>Olvidaste tu contraseña?</Text>
-                </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <Text style={estilos.textoLink}>¿Olvidaste tu contraseña?</Text>
+        </TouchableOpacity>
 
-                <View style={estilos.separador} />
+        <View style={estilos.separador} />
 
-                <TouchableOpacity 
-                    style={estilos.botonGrisClaro} 
-                    onPress={() => router.push("/register")}
-                >
-                    <Text style={estilos.textoNegro}>Crear cuenta nueva</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
+        <AppButton
+          label="Crear cuenta nueva"
+          style={estilos.botonClaro}
+          textStyle={estilos.textoNegro}
+          onPress={() => router.push("/register")}
+        />
+      </View>
+    </View>
+  );
 }

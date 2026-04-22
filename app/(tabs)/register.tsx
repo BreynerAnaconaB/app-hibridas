@@ -1,30 +1,59 @@
 import { useRouter } from "expo-router";
-import React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import estilos from "./css/estilos";
+import React, { useState } from "react";
+import { Alert, Text, TouchableOpacity, View } from "react-native";
+import AppButton from "../components/AppButton";
+import AppInput from "../components/AppInput";
+import { registrar } from "../../services/api";
+import estilos from "../css/estilos";
 
 export default function Register() {
-    const router = useRouter();
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [password, setPassword] = useState("");
+  const [cargando, setCargando] = useState(false);
+  const router = useRouter();
 
-    return (
-        <View style={estilos.pantallaFondo}>
-            <View style={estilos.tarjetaBlanca}>
-                <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 5 }}>Regístrate</Text>
+  const handleRegistrar = async () => {
+    if (!nombre || !email || !password || !telefono) {
+      Alert.alert("Error", "Completá todos los campos");
+      return;
+    }
+    try {
+      setCargando(true);
+      await registrar({ nombre, email, contraseña: password, telefono });
+      Alert.alert("Éxito", "Cuenta creada correctamente", [
+        { text: "Ir al login", onPress: () => router.replace("/login") },
+      ]);
+    } catch (err: any) {
+      Alert.alert("Error", err.message || "No se pudo crear la cuenta");
+    } finally {
+      setCargando(false);
+    }
+  };
 
-                <TextInput style={estilos.inputBlanco} placeholder="Nombre completo" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputBlanco} placeholder="Nombre de usuario" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputBlanco} placeholder="Correo electrónico" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputBlanco} placeholder="Número de teléfono" placeholderTextColor="#888" />
-                <TextInput style={estilos.inputBlanco} placeholder="Contraseña" secureTextEntry placeholderTextColor="#888" />
+  return (
+    <View style={estilos.pantallaFondo}>
+      <View style={estilos.tarjetaBlanca}>
+        <Text style={estilos.tituloSeccion}>Regístrate</Text>
 
-                <TouchableOpacity style={[estilos.botonGrisOscuro, { marginTop: 20 }]} onPress={() => router.replace("/login")}>
-                    <Text style={estilos.textoBlanco}>Registrarte</Text>
-                </TouchableOpacity>
+        <AppInput style={estilos.input} placeholder="Nombre completo" value={nombre} onChangeText={setNombre} />
+        <AppInput style={estilos.input} placeholder="Correo electrónico" value={email} onChangeText={setEmail} keyboardType="email-address" />
+        <AppInput style={estilos.input} placeholder="Número de teléfono" value={telefono} onChangeText={setTelefono} keyboardType="phone-pad" />
+        <AppInput style={estilos.input} placeholder="Contraseña" secureTextEntry value={password} onChangeText={setPassword} />
 
-                <TouchableOpacity onPress={() => router.push("/login")}>
-                    <Text style={{ color: '#444', textAlign: 'center', marginTop: 15, fontWeight: '600' }}>Ya tienes una cuenta?</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
+        <AppButton
+          label={cargando ? "Registrando..." : "Registrarte"}
+          style={estilos.botonOscuro}
+          textStyle={estilos.textoBlanco}
+          onPress={handleRegistrar}
+          disabled={cargando}
+        />
+
+        <TouchableOpacity onPress={() => router.push("/login")}>
+          <Text style={estilos.textoLink}>¿Ya tienes cuenta? Iniciá sesión</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 }
