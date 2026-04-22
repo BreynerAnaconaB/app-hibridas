@@ -1,6 +1,6 @@
 import { Tabs, usePathname } from 'expo-router';
 import { View } from 'react-native';
-import { Footer, Header } from '../components/LayoutGlobal';
+import { Footer, Header } from '../../components/LayoutGlobal';
 
 export default function TabLayout() {
   const rutaActual = usePathname(); 

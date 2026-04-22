@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { TextInputField } from "./TextInputField";
+import { styles } from "./styles/estilosLoginInput";
 
 type Campo = {
     name: keyof FormData
@@ -13,7 +14,12 @@ type FormData = {
     contraseña: string
 }
 
-export const LoginInput: React.FC = () => {
+type Props = { 
+    onSubmit: (form: FormData) => void
+}
+
+export const LoginInput: React.FC<Props> = ({onSubmit}) => {
+    const [error, setError] = useState("")
     const [form, setForm] = useState<FormData>({
         correo: "",
         contraseña: ""
@@ -41,11 +47,24 @@ export const LoginInput: React.FC = () => {
     }
 
     const handleSubmit = () => {
-        console.log(form)
+        if(
+            !form.correo.trim() ||
+            !form.contraseña.trim()
+        ) {
+            setError("Todos los campos son obligatorios")
+            return
+        }
+
+        if (!/\S+@\S+\.\S+/.test(form.correo)){
+            setError("Correo invalido")
+            return
+        }
+
+        onSubmit(form)
     }
     
     return (
-        <View>
+        <View style={styles.container}>
             {campos.map((campo) => (
 
                 <TextInputField 
@@ -60,7 +79,13 @@ export const LoginInput: React.FC = () => {
             
             ))}
 
-            <Button title="Entrar" onPress={handleSubmit} />
+            {error !== "" && (
+            <Text style={styles.errorText}>{error}</Text>
+            )}
+
+            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                <Text style={styles.buttonText}>Iniciar sesión</Text>
+            </TouchableOpacity>
         </View>
     )
 

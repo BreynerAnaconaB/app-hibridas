@@ -42,7 +42,7 @@ const estilos = StyleSheet.create({
         fontFamily: 'sans-serif-condensed',
         fontWeight: 900,
         fontSize: 50,
-        borderRadius: '20%',
+        borderRadius: 20,
         marginTop: '2%',
         color: "#f7f2f2",
         flexDirection: 'row',
@@ -53,17 +53,13 @@ const estilos = StyleSheet.create({
     },
 
     textIndex: {
-        flex: 9,
         fontSize: 24,
-        marginLeft: -10,
         fontFamily: 'sans-serif-medium',
         fontWeight: 500,
         color: '#ffffff',
-        maxWidth: 500,
-        marginTop: 0,
-        padding: 40,
-
-
+        width: '100%',
+        maxWidth: 800,
+        padding: 20,
     },
     estilosProducto: {
         width: 200,
@@ -77,34 +73,23 @@ const estilos = StyleSheet.create({
     },
 
     Container: {
-        backgroundColor: 'white',
-        borderRadius: 20,
-        padding: -10,
-        margin: 30,
-        flex: 1,
-
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-
-        shadowColor: '#989898',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.05,
-        shadowRadius: 10,
-        elevation: 1,
+    height: 300,
+    borderRadius: 20,
+    margin: 20,
+    overflow: 'hidden', // 👈 IMPORTANTE
+    position: 'relative'
     },
 
     ContainerInfo: {
-        backgroundColor:'#ffffff',
-        borderColor: '#070606',
-        shadowColor: '#000000', 
-        shadowOpacity: 0.9,
-        shadowRadius: 20,
+        width: '48%',
+        backgroundColor: '#ffffff',
         borderRadius: 20,
-        padding: 30,
-        margin: 43,
-        overflow: 'hidden',
+        padding: 16,
+        margin: 16,
         flex: 1,
-        alignSelf: 'center',
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 10,
         elevation: 5
     },
 
@@ -113,34 +98,22 @@ const estilos = StyleSheet.create({
         fontSize: 30,
         fontWeight: '800',
         color: '#000000',
-        padding: '20%',
-        marginBottom: 8,
-        alignSelf: 'center'
+        marginBottom: 6,
+        textAlign: 'center'
     },
 
     imgCard: {
-        backgroundColor: "#fff",
-        position: 'absolute',
-        top: '1%',
-        left: '30%',
-        right: 0,
-        bottom: 0,
-        width: '70%',
-        height: '98%',
-        borderRadius: 10
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
     },
 
     gradientLayer: {
-        flex: 1,
-        alignItems: 'flex-start',
-        padding: 5,
-        width: '100%',
-        maxHeight: '100%',
-        paddingInline: '10%',
-        borderRadius: 20
-
-
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 20,
     },
+
     gradientLayerIndex: {
 
         flex: 2,
@@ -154,21 +127,15 @@ const estilos = StyleSheet.create({
 
     imgCardInfo: {
         width: '100%',
-        height: 200,
-        padding: '40%',
-        borderRadius: 20
+        height: 150,
+        borderRadius: 20,
+        marginBottom: 10
     },
 
     textTarjeta:{
-          flex: 9,
-        fontSize: 24,
-        marginLeft: -10,
+        fontSize: 14,
         fontFamily: 'sans-serif-medium',
-        fontWeight: 500,
-        color: '#000000',
-        maxWidth: 500,
-        marginTop: '-20%',
-        padding: 40,
+        color: '#333'
     }
 
 

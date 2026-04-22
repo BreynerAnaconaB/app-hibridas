@@ -11,11 +11,12 @@ export default function Register() {
             <View style={estilos.tarjetaBlanca}>
                 <Text style={estilos.registrate}>Regístrate</Text>
 
-                <RegisterInput />
-
-                <TouchableOpacity style={estilos.botonGrisOscuro} onPress={() => router.replace("/login")}>
-                    <Text style={estilos.textoBlanco}>Registrarte</Text>
-                </TouchableOpacity>
+                <RegisterInput 
+                onSubmit={(form) => {
+                    console.log(form)
+                    router.replace("/login")
+                }}
+                />
 
                 <TouchableOpacity onPress={() => router.push("/login")}>
                     <Text style={estilos.noCuentaBoton}>Ya tienes una cuenta?</Text>

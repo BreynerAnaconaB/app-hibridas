@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
-import estilos from './estilos-LayoutGlobal';
+import estilos from '../app/css/estilos-LayoutGlobal';
 
 export const Header = () => {
     const router = useRouter(); 
@@ -73,6 +73,6 @@ export const Header = () => {
 
 export const Footer = () => (
     <View style={estilos.footer}>
-        <Text style={estilos.textSmall}>Desarrollado por Juliano y Breyner</Text>
+        <Text style={estilos.textSmall}>Desarrollado por Juliano, Breyner y Juan</Text>
     </View>
 );

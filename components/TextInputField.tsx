@@ -1,4 +1,5 @@
 import { Text, TextInput, View } from "react-native";
+import { styles } from "./styles/estilosTextInputField";
 
 type Props<T> = {
     label: string
@@ -19,9 +20,10 @@ export const TextInputField = <T extends {}> ({
     secureTextEntry = false,
 }: Props<T>) => {
     return (
-        <View>
-            <Text>{label}</Text>
+        <View style={styles.container}>
+            <Text style={styles.label}>{label}</Text>
             <TextInput 
+            style={styles.input}
             value={value}
             secureTextEntry={secureTextEntry}
             onChangeText={(text) => onChange(name, text)}

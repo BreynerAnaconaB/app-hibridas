@@ -11,11 +11,12 @@ export default function Login() {
             <View style={estilos.tarjetaBlanca}>
                 <Text style={estilos.nombrePagina}>TecNano</Text>
                 
-                <LoginInput />
-
-                <TouchableOpacity style={estilos.botonGrisOscuro} onPress={() => router.replace("/(tabs)")}>
-                    <Text style={estilos.textoBlanco}>Entrar</Text>
-                </TouchableOpacity>
+                <LoginInput 
+                onSubmit={(form) => {
+                    console.log(form)
+                    router.replace("/(tabs)")
+                }}
+                />
 
                 <TouchableOpacity onPress={() => {}}>
                     <Text style={estilos.olvidarContraseña}>Olvidaste tu contraseña?</Text>
