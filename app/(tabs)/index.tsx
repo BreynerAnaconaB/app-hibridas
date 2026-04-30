@@ -38,7 +38,7 @@ const datosIndex: Fotos_texto[] = [
 ];
 
 
-// 🔷 HERO (no lo tocamos mucho)
+
 function RenderItem({ item }: { item: Introduccion }) {
   return (
     <View style={estilos.Container}>
@@ -60,7 +60,7 @@ function RenderItem({ item }: { item: Introduccion }) {
 }
 
 
-// 🔷 CARDS
+
 function renderDetalles_producto({ item, cardWidth }: any) {
   return (
     <TouchableOpacity
@@ -80,18 +80,16 @@ function renderDetalles_producto({ item, cardWidth }: any) {
 }
 
 
-// 🔷 MAIN
 export default function paginaPrincipal() {
 
   const { width } = useWindowDimensions();
 
-  // 🔥 RESPONSIVE REAL
+
   const columnas =
     width < 700 ? 1 :
     width < 1100 ? 2 :
     3;
 
-  // 🔥 ANCHO DINÁMICO
   const cardWidth =
     columnas === 1 ? "100%" :
     columnas === 2 ? "48%" :
