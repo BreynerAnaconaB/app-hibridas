@@ -1,5 +1,5 @@
 // ─── CAMBIAR ESTA URL POR LA DE TU RAILWAY ───────────────────────────────────
-const BASE_URL = 'https://TU-PROYECTO.up.railway.app';
+const BASE_URL = 'https://app-hibridas-backend-production.up.railway.app';
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function request<T>(
@@ -43,7 +43,7 @@ export interface LoginResponse {
 }
 
 export function login(email: string, contraseña: string): Promise<LoginResponse> {
-  return request<LoginResponse>('/user/login', {
+  return request<LoginResponse>('/api/user/login', {
     method: 'POST',
     body: JSON.stringify({ email, contraseña }),
   });
@@ -55,7 +55,7 @@ export function registrar(datos: {
   contraseña: string;
   telefono: string;
 }): Promise<string> {
-  return request<string>('/user/crear', {
+  return request<string>('/api/user/crear', {
     method: 'POST',
     body: JSON.stringify(datos),
   });
@@ -74,16 +74,16 @@ export interface Producto {
 }
 
 export function getProductos(token: string): Promise<Producto[]> {
-  return request<Producto[]>('/productos', {}, token);
+  return request<Producto[]>('/api/productos/all', {}, token);
 }
 
 export function crearProducto(token: string, producto: Omit<Producto, 'id_producto'>): Promise<Producto> {
-  return request<Producto>('/productos', {
+  return request<Producto>('/api/productos/crear', {
     method: 'POST',
     body: JSON.stringify(producto),
   }, token);
 }
 
 export function eliminarProducto(token: string, id: number): Promise<string> {
-  return request<string>(`/productos/${id}`, { method: 'DELETE' }, token);
+  return request<string>(`/api/productos/eliminar/${id}`, { method: 'DELETE' }, token);
 }
