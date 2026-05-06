@@ -1,58 +1,56 @@
 import { StyleSheet } from "react-native";
 
 const estilos = StyleSheet.create({
-    card: {
-    backgroundColor: '#fff', 
-    padding: 10, 
-    margin: 5, 
-    borderRadius: 10, 
-    flex: 1
-    },
-    card2: {
-        backgroundColor: '#f0f0f0', 
-        width: '100%', 
-        height: 80, 
-        borderRadius: 10, 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        marginBottom: 10
-    },
-    nombreItem: {
-        fontWeight: 'bold', 
-        textAlign: 'center', 
-        fontSize: 12
-    },
-    itemPrecio: {
-        color: 'green', 
-        fontWeight: 'bold'
-    },
-    botonAgregar: {
-        width: '100%', 
-        padding: 5, 
-        marginTop: 5
-    },
-    vistaCategorias: {
-        flex: 1, 
-        backgroundColor: '#f8f9fa'
-    },
-    categorias: {
-        padding: 10, 
-        backgroundColor: '#ddd', 
-        borderRadius: 20, 
-        marginRight: 10 
-    },
-    containerCategorias: {
-        paddingHorizontal: 15, 
-        alignItems: 'center'
-    },
-    vistaGeneral: {
-        height: 60, 
-        marginVertical: 10
-    },
-    cuadroCategoria: {
-       color: '#fff', 
-       fontWeight: 'bold'
-    }
+container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    padding: 15,
+},
+
+titulo: {
+    fontSize: 32,
+    fontWeight: '800',
+    marginBottom: 20,
+    color: '#000'
+},
+
+card: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 20,
+    marginBottom: 15,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
+},
+
+nombreItem: {
+    fontSize: 22,
+    fontWeight: '700',
+    marginBottom: 8,
+    color: '#000'
+},
+
+descripcion: {
+    fontSize: 15,
+    color: '#555',
+    marginBottom: 15,
+    lineHeight: 22
+},
+
+botonAgregar: {
+    backgroundColor: '#007bff',
+    paddingVertical: 12,
+    borderRadius: 12,
+    alignItems: 'center',
+},
+
+textoBoton: {
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 16
+},
 })
 
 export default estilos
