@@ -29,7 +29,7 @@ export default function servicios() {
 
   return (
     <View style={estilos.container}>
-      <Text style={estilos.titulo}>Servicios</Text>
+      <Text style={estilos.titulo}>Servicio</Text>
 
       <FlatList 
       data={listaServicios}
