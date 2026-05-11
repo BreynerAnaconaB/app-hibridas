@@ -1,6 +1,8 @@
-import { Text } from "@react-navigation/elements";
-import { LinearGradient } from 'expo-linear-gradient';
-import { FlatList, Image, TouchableOpacity, useWindowDimensions, View } from "react-native";
+import Banner from '@/components/funciones/Banner';
+import ProductosDestacados from '@/components/funciones/ProductosDestacados';
+import ServiciosDestacados from '@/components/funciones/ServiciosDestacados';
+import { router } from "expo-router";
+import { FlatList, Image, Text, TouchableOpacity, useWindowDimensions, View } from "react-native";
 import estilos from "../css/estilos";
 
 interface Introduccion {
@@ -14,76 +16,27 @@ interface Fotos_texto {
   texto: string
 }
 
-const task: Introduccion[] = [{
-  title: "TECNANO",
-  text: "Elevamos el estándar de tu infraestructura digital con soluciones de hardware de alto rendimiento",
-}];
-
 const datosIndex: Fotos_texto[] = [
   {
     title: "COMPONENTES",
     imagen: 'https://www.computronixco.com/wp-content/uploads/2021/09/mantimiento-computadoras-gamers-cali-1.png',
-    texto: 'Hardware de alto rendimiento seleccionado para máxima eficiencia. Desde procesadores de última generación hasta almacenamiento sólido (SSD) de alta velocidad.'
+    texto: 'Hardware de alto rendimiento para máxima eficiencia.'
   },
   {
     title: "SERVICIO",
     imagen: "https://imgs.search.brave.com/hp7G0v7liISzxQc5zt33K4duahmaq5DJSqDQSmChoBw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zcGFy/dGFuZ2Vlay5jb20vYQ",
-    texto: 'Mantenimiento preventivo y correctivo con estándares de calidad industrial. Especialistas en limpieza interna, cambio de pasta térmica y optimización de software para prolongar la vida útil de tus equipos.'
+    texto: 'Mantenimiento y optimización de equipos.'
   },
   {
     title: "ASESORIAS",
     imagen: "https://imgs.search.brave.com/erzg53lr2BGP8wQORb5k2tIyX1VQxaHJC0_wJXy3LMk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cy4xMjNyZi5jb20vNDUw",
-    texto: 'Consultoría técnica personalizada para proyectos de infraestructura digital. Te ayudamos a elegir la configuración ideal según tu presupuesto y necesidades de procesamiento de datos o desarrollo.'
+    texto: 'Consultoría tecnológica personalizada.'
   }
 ];
 
-
-
-function RenderItem({ item }: { item: Introduccion }) {
-  return (
-    <View style={estilos.Container}>
-      <Image
-        source={require('./assets/indexiImagen.jpg')}
-        style={estilos.imgCard}
-        resizeMode="cover"
-      />
-
-      <LinearGradient
-        colors={['transparent', 'rgba(0,0,0,0.7)']}
-        style={estilos.gradientLayer}
-      >
-        <Text style={estilos.Tituloindex}>{item.title}</Text>
-        <Text style={estilos.textIndex}>{item.text}</Text>
-      </LinearGradient>
-    </View>
-  );
-}
-
-
-
-function renderDetalles_producto({ item, cardWidth }: any) {
-  return (
-    <TouchableOpacity
-      style={[estilos.ContainerInfo, { width: cardWidth }]}
-      activeOpacity={0.7}
-    >
-      <Image
-        source={{ uri: item.imagen }}
-        style={estilos.imgCardInfo}
-        resizeMode="cover"
-      />
-
-      <Text style={estilos.tituloTarjeta}>{item.title}</Text>
-      <Text style={estilos.textTarjeta}>{item.texto}</Text>
-    </TouchableOpacity>
-  );
-}
-
-
-export default function paginaPrincipal() {
+export default function PaginaPrincipal() {
 
   const { width } = useWindowDimensions();
-
 
   const columnas =
     width < 700 ? 1 :
@@ -95,6 +48,27 @@ export default function paginaPrincipal() {
     columnas === 2 ? "48%" :
     "30%";
 
+  const renderCard = ({ item }: { item: Fotos_texto }) => (
+    <TouchableOpacity
+      style={[estilos.ContainerInfo, { width: cardWidth }]}
+      activeOpacity={0.7}
+      onPress={() => {
+        if (item.title === "SERVICIO") {
+          router.push("/servicios")
+        }
+      }}
+    >
+      <Image
+        source={{ uri: item.imagen }}
+        style={estilos.imgCardInfo}
+        resizeMode="cover"
+      />
+
+      <Text style={estilos.tituloTarjeta}>{item.title}</Text>
+      <Text style={estilos.textTarjeta}>{item.texto}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={{ flex: 1 }}>
 
@@ -105,7 +79,8 @@ export default function paginaPrincipal() {
         key={columnas}
 
         contentContainerStyle={{
-          paddingHorizontal: 10
+          paddingHorizontal: 10,
+          paddingBottom: 30
         }}
 
         columnWrapperStyle={
@@ -114,17 +89,27 @@ export default function paginaPrincipal() {
             : undefined
         }
 
-        renderItem={({ item }) =>
-          renderDetalles_producto({ item, cardWidth })
-        }
+        renderItem={renderCard}
 
         ListHeaderComponent={
-          <FlatList
-            data={task}
-            renderItem={({ item }) => <RenderItem item={item} />}
-            keyExtractor={(item) => item.title}
-            scrollEnabled={false}
-          />
+          <View>
+
+            <Banner 
+              title="TECNANO"
+              text="Elevamos el estándar de tu infraestructura digital con soluciones de hardware de alto rendimiento"
+            />
+
+            <Text style={estilos.tituloCategorias}>Servicios destacados</Text>
+
+            <ServiciosDestacados />
+
+            <Text style={estilos.tituloCategorias}>Productos destacados</Text>
+
+            <ProductosDestacados />
+
+            <Text style={estilos.tituloCategorias}>Explorar categorías</Text>
+
+          </View>
         }
       />
 

@@ -1,4 +1,4 @@
-import { LoginInput } from "@/components/LoginInput";
+import { LoginInput } from "@/components/funciones/LoginInput";
 import { login } from "@/services/api";
 import { useRouter } from "expo-router";
 import { Alert, Text, TouchableOpacity, View } from "react-native";

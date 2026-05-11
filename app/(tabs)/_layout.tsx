@@ -1,4 +1,4 @@
-import { Footer, Header } from '@/components/LayoutGlobal';
+import { Footer, Header } from '@/components/funciones/LayoutGlobal';
 import { Tabs, usePathname } from 'expo-router';
 import { View } from 'react-native';
 import { AuthProvider } from '../../context/AuthContext';
