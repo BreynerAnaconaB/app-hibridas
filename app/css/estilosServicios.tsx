@@ -15,6 +15,7 @@ titulo: {
 },
 
 card: {
+    width: '48%',
     backgroundColor: '#fff',
     borderRadius: 20,
     padding: 20,
@@ -40,17 +41,28 @@ descripcion: {
 },
 
 botonAgregar: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#ddd',
     paddingVertical: 12,
     borderRadius: 12,
     alignItems: 'center',
 },
 
 textoBoton: {
-    color: '#fff',
+    color: '#000',
     fontWeight: '700',
     fontSize: 16
 },
+
+textoCategoria: {
+    fontWeight: "700"
+},
+
+botonCategoria: {
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    marginRight: 10
+}
 })
 
 export default estilos
