@@ -1,4 +1,4 @@
-import { RegisterInput } from "@/components/RegisterInput";
+import { RegisterInput } from "@/components/funciones/RegisterInput";
 import { registrar } from "@/services/api";
 import { useRouter } from "expo-router";
 import { Alert, Text, TouchableOpacity, View } from "react-native";

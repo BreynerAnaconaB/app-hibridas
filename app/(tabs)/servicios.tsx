@@ -15,7 +15,7 @@ const listaServicios: Servicio[] = [
   { id: "5", nombre: "Venta de accesorios", descripcion: "Cargadores, audífonos, etc." },
 ]
 
-export default function servicios() {
+export default function Servicios() {
   const render = ({ item }: { item: Servicio }) => (
     <View style={estilos.card}>
       <Text style={estilos.nombreItem}>{item.nombre}</Text>

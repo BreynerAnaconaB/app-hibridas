@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+import { styles } from "../styles/estilosRegisterInput";
 import { TextInputField } from "./TextInputField";
-import { styles } from "./styles/estilosRegisterInput";
 
 type FormData = {
   nombres: string;

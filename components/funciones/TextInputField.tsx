@@ -1,5 +1,5 @@
 import { Text, TextInput, View } from "react-native";
-import { styles } from "./styles/estilosTextInputField";
+import { styles } from "../styles/estilosTextInputField";
 
 type Props<T> = {
     label: string

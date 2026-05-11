@@ -136,9 +136,10 @@ const estilos = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'sans-serif-medium',
         color: '#333'
+    },
+    tituloCategorias: {
+        fontSize: 25
     }
-
-
 });
 
 export default estilos;

@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
-import estilos from '../app/css/estilos-LayoutGlobal';
+import estilos from '../../app/css/estilos-LayoutGlobal';
 
 export const Header = () => {
     const router = useRouter(); 

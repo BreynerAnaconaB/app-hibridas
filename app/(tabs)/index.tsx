@@ -1,7 +1,8 @@
-import { Text } from "@react-navigation/elements";
-import { useNavigation } from "@react-navigation/native";
-import { LinearGradient } from 'expo-linear-gradient';
-import { FlatList, Image, TouchableOpacity, useWindowDimensions, View } from "react-native";
+import Banner from '@/components/funciones/Banner';
+import ProductosDestacados from '@/components/funciones/ProductosDestacados';
+import ServiciosDestacados from '@/components/funciones/ServiciosDestacados';
+import { router } from "expo-router";
+import { FlatList, Image, Text, TouchableOpacity, useWindowDimensions, View } from "react-native";
 import estilos from "../css/estilos";
 
 interface Introduccion {
@@ -14,18 +15,6 @@ interface Fotos_texto {
   imagen: string,
   texto: string
 }
-
-interface servicios {
-  id: string,
-  title: string,
-  imagen: string
-}
-
-
-const task: Introduccion[] = [{
-  title: "TECNANO",
-  text: "Elevamos el estándar de tu infraestructura digital con soluciones de hardware de alto rendimiento",
-}];
 
 const datosIndex: Fotos_texto[] = [
   {
@@ -45,69 +34,9 @@ const datosIndex: Fotos_texto[] = [
   }
 ];
 
-const serviciosDescatados = [
-  {
-    id: "1",
-    title: "Instalación de software",
-    imagen: "https://cdn-icons-png.flaticon.com/512/888/888879.png"
-  },
-  {
-    id: "2",
-    title: "Mantenimiento de computadores",
-    imagen: "https://cdn-icons-png.flaticon.com/512/2921/2921822.png"
-  },
-  {
-    id: "3",
-    title: "Reparación de celulares",
-    imagen: "https://cdn-icons-png.flaticon.com/512/15/15874.png"
-  },
-]
-
-const productosDestacados = [
-  {
-    id: "1",
-    nombre: "RTX 4070",
-    precio: "$2.000.000",
-    imagen: "https://http2.mlstatic.com/D_NQ_NP_2X_690593-MLA74651271920_022024-F.webp"
-  },
-  {
-    id: "2",
-    nombre: "Ryzen 7 5800X",
-    precio: "$700.000",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ5c6aI3N8GJY6u1gQ4Wn9rxI7VE4L4W5W0g&s"
-  },
-  {
-    id: "3",
-    nombre: "Monitor Gamer",
-    precio: "$900.000",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0W9w1C0x7Bhx6A2v7_xR6M3T0Yc8H1bYk4w&s"
-  }
-];
-
-function RenderItem({ item }: { item: Introduccion }) {
-  return (
-    <View style={estilos.Container}>
-      <Image
-        source={require('./assets/indexiImagen.jpg')}
-        style={estilos.imgCard}
-        resizeMode="cover"
-      />
-
-      <LinearGradient
-        colors={['transparent', 'rgba(0,0,0,0.7)']}
-        style={estilos.gradientLayer}
-      >
-        <Text style={estilos.Tituloindex}>{item.title}</Text>
-        <Text style={estilos.textIndex}>{item.text}</Text>
-      </LinearGradient>
-    </View>
-  );
-}
-
 export default function PaginaPrincipal() {
 
   const { width } = useWindowDimensions();
-  const navigation = useNavigation();
 
   const columnas =
     width < 700 ? 1 :
@@ -125,7 +54,7 @@ export default function PaginaPrincipal() {
       activeOpacity={0.7}
       onPress={() => {
         if (item.title === "SERVICIO") {
-          navigation.navigate("Servicios" as never);
+          router.push("/servicios")
         }
       }}
     >
@@ -165,71 +94,20 @@ export default function PaginaPrincipal() {
         ListHeaderComponent={
           <View>
 
-            {task.map(item => (
-              <RenderItem key={item.title} item={item} />
-            ))}
-
-            <Text>Servicios destacados</Text>
-
-            <FlatList
-              data={serviciosDescatados}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <TouchableOpacity
-                style={[estilos.ContainerInfo, {width: 200, marginRight: 10}]}
-                  onPress={() => navigation.navigate("Servicios" as never)}
-                >
-                  <Image
-                    source={{ uri: item.imagen }}
-                    style={estilos.imgCardInfo}
-                    resizeMode="cover"
-                  />
-                  <Text style={estilos.tituloTarjeta}>{item.title}</Text>
-                </TouchableOpacity>
-              )}
+            <Banner 
+              title="TECNANO"
+              text="Elevamos el estándar de tu infraestructura digital con soluciones de hardware de alto rendimiento"
             />
 
-            <Text>Productos destacados</Text>
+            <Text style={estilos.tituloCategorias}>Servicios destacados</Text>
 
-<FlatList
-  data={productosDestacados}
-  horizontal
-  showsHorizontalScrollIndicator={false}
-  keyExtractor={(item) => item.id}
-  contentContainerStyle={{ paddingHorizontal: 5 }}
+            <ServiciosDestacados />
 
-  renderItem={({ item }) => (
-    <TouchableOpacity
-      style={[
-        estilos.ContainerInfo,
-        {
-          width: 220,
-          marginRight: 10,
-          flex: undefined
-        }
-      ]}
-      activeOpacity={0.8}
-    >
-      <Image
-        source={{ uri: item.imagen }}
-        style={estilos.imgCardInfo}
-        resizeMode="cover"
-      />
+            <Text style={estilos.tituloCategorias}>Productos destacados</Text>
 
-      <Text style={estilos.tituloTarjeta}>
-        {item.nombre}
-      </Text>
+            <ProductosDestacados />
 
-      <Text style={estilos.textTarjeta}>
-        {item.precio}
-      </Text>
-    </TouchableOpacity>
-  )}
-/>            
-
-            <Text>Explorar categorías</Text>
+            <Text style={estilos.tituloCategorias}>Explorar categorías</Text>
 
           </View>
         }

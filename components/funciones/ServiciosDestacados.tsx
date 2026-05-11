@@ -1,0 +1,54 @@
+import { router } from "expo-router";
+import { FlatList, Image, Text, TouchableOpacity } from "react-native";
+import estilos from "../styles/estilosServiciosProductosDestacados";
+
+interface servicios {
+  id: string,
+  title: string,
+  imagen: string
+}
+
+const serviciosDestacados: servicios[] = [
+  {
+    id: "1",
+    title: "Instalación de software",
+    imagen: "https://cdn-icons-png.flaticon.com/512/888/888879.png"
+  },
+  {
+    id: "2",
+    title: "Mantenimiento de computadores",
+    imagen: "https://cdn-icons-png.flaticon.com/512/2921/2921822.png"
+  },
+  {
+    id: "3",
+    title: "Reparación de celulares",
+    imagen: "https://cdn-icons-png.flaticon.com/512/15/15874.png"
+  },
+]
+
+export default function ServiciosDestacados() {
+    return (
+            <FlatList
+              data={serviciosDestacados}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{
+                paddingHorizontal: 5
+              }}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                style={[estilos.ContainerInfo, {width: 220, marginRight: 10, flex: undefined}]}
+                  onPress={() => router.push("/servicios")}
+                >
+                  <Image
+                    source={{ uri: item.imagen }}
+                    style={estilos.imgCardInfo}
+                    resizeMode="cover"
+                  />
+                  <Text style={estilos.tituloTarjeta}>{item.title}</Text>
+                </TouchableOpacity>
+              )}
+            />        
+    )
+}
