@@ -1,4 +1,4 @@
-import { FlatList, Image, Text, TouchableOpacity } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity, useWindowDimensions } from "react-native";
 import estilos from "../styles/estilosServiciosProductosDestacados";
 
 interface productos {
@@ -30,6 +30,14 @@ const productosDestacados: productos[] = [
 ]
 
 export default function ProductosDestacados() {
+
+  const {width} = useWindowDimensions()
+
+  const cardWidth =
+  width < 700 ? 220 :
+  width < 1100 ? 320 :
+  420
+
     return (
     <FlatList
   data={productosDestacados}
@@ -43,9 +51,8 @@ export default function ProductosDestacados() {
       style={[
         estilos.ContainerInfo,
         {
-          width: 220,
-          marginRight: 10,
-          flex: undefined
+          width: cardWidth,
+          marginRight: 15,
         }
       ]}
       activeOpacity={0.8}

@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { FlatList, Image, Text, TouchableOpacity } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity, useWindowDimensions } from "react-native";
 import estilos from "../styles/estilosServiciosProductosDestacados";
 
 interface servicios {
@@ -27,6 +27,14 @@ const serviciosDestacados: servicios[] = [
 ]
 
 export default function ServiciosDestacados() {
+
+    const {width} = useWindowDimensions()
+  
+    const cardWidth =
+    width < 700 ? 220 :
+    width < 1100 ? 320 :
+    480
+
     return (
             <FlatList
               data={serviciosDestacados}
@@ -38,7 +46,7 @@ export default function ServiciosDestacados() {
               }}
               renderItem={({ item }) => (
                 <TouchableOpacity
-                style={[estilos.ContainerInfo, {width: 220, marginRight: 10, flex: undefined}]}
+                style={[estilos.ContainerInfo, {width: cardWidth, marginRight: 15}]}
                   onPress={() => router.push("/servicios")}
                 >
                   <Image

@@ -2,11 +2,10 @@ import { StyleSheet } from "react-native";
 
 const estilos = StyleSheet.create({
     ContainerInfo: {
-        minWidth: 260,
-        maxWidth: 380,
         backgroundColor: '#ffffff',
         borderRadius: 20,
         padding: 16,
+        overflow: 'hidden',
         marginBottom: 20,
         shadowColor: '#000',
         shadowOpacity: 0.1,
