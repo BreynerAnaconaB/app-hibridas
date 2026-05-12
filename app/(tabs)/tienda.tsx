@@ -54,14 +54,14 @@ export default function PantallaTienda() {
                             style={[
                                 estilos.categorias,
                                 {
-                                    backgroundColor: categoriaSeleccionada === cat ? '#007bff' : '#5a5a5a'
+                                    backgroundColor: categoriaSeleccionada === cat ? '#007bff' : '#ddd'
                                 }
                             ]}
                         >
                             <Text style={[
                                 estilos.cuadroCategoria,
                                 {
-                                    color: categoriaSeleccionada === cat ? '#333' : '#fff'
+                                    color: categoriaSeleccionada === cat ? '#fff' : '#333'
                                 }
                             ]}>{cat}</Text>
                         </TouchableOpacity>

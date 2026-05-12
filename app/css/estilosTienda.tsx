@@ -25,7 +25,8 @@ const estilos = StyleSheet.create({
     itemPrecio: {
         color: 'green', 
         fontWeight: 'bold',
-        alignItems: 'center'
+        textAlign: 'center',
+        marginTop: 5
     },
     botonAgregar: {
         backgroundColor: '#e7e7e7',

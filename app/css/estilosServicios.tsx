@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native";
 
 const estilos = StyleSheet.create({
     card: {
-    backgroundColor: '#fff', 
-    padding: 10, 
-    margin: 5, 
-    borderRadius: 10, 
-    flex: 1
+        backgroundColor: '#fff', 
+        padding: 10, 
+        margin: 5, 
+        borderRadius: 10, 
+        flex: 1
     },
     card2: {
         backgroundColor: '#f0f0f0', 
@@ -20,7 +20,9 @@ const estilos = StyleSheet.create({
     nombreItem: {
         fontWeight: 'bold', 
         textAlign: 'center', 
-        fontSize: 15
+        fontSize: 17,
+        marginBottom: 10,
+        minHeight: 40
     },
     botonAgregar: {
         backgroundColor: '#e7e7e7',
@@ -37,28 +39,32 @@ const estilos = StyleSheet.create({
         backgroundColor: '#f8f9fa'
     },
     categorias: {
-        padding: 10, 
+        paddingVertical: 10,
+        paddingHorizontal: 18,
         backgroundColor: '#ddd', 
         borderRadius: 20, 
-        marginRight: 10 
+        marginRight: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     containerCategorias: {
         paddingHorizontal: 15, 
         alignItems: 'center'
     },
     vistaGeneral: {
-        height: 60, 
         marginVertical: 10
     },
     cuadroCategoria: {
        color: '#fff', 
-       fontWeight: 'bold'
+       fontWeight: 'bold',
+       fontSize: 14
     },
     descripcion: {
-    fontSize: 15,
+    fontSize: 14,
     color: '#555',
     marginBottom: 15,
-    lineHeight: 22
+    lineHeight: 22,
+    textAlign: 'center'
     },
     textoBoton: {
         color: '#000',

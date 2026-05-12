@@ -39,7 +39,7 @@ const estilos = StyleSheet.create({
         textDecorationLine: "line-through"
     },
     Tituloindex: {
-        fontFamily: 'sans-serif-condensed',
+        fontFamily: 'sans-serif',
         fontWeight: 900,
         fontSize: 50,
         borderRadius: 20,
@@ -129,7 +129,8 @@ const estilos = StyleSheet.create({
         width: '100%',
         height: 150,
         borderRadius: 20,
-        marginBottom: 10
+        marginBottom: 10,
+        alignSelf: 'center'
     },
 
     textTarjeta:{
@@ -138,8 +139,11 @@ const estilos = StyleSheet.create({
         color: '#333'
     },
     tituloCategorias: {
-        fontSize: 25
-    }
+        fontSize: 25,
+        textAlign: 'center',
+        marginTop: 10,
+        marginBottom: 20
+    },
 });
 
 export default estilos;

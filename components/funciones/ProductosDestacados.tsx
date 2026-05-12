@@ -36,7 +36,7 @@ export default function ProductosDestacados() {
   const cardWidth =
   width < 700 ? 220 :
   width < 1100 ? 320 :
-  420
+  480
 
     return (
     <FlatList
@@ -60,7 +60,7 @@ export default function ProductosDestacados() {
       <Image
         source={{ uri: item.imagen }}
         style={estilos.imgCardInfo}
-        resizeMode="cover"
+        resizeMode="contain"
       />
 
       <Text style={estilos.tituloTarjeta}>

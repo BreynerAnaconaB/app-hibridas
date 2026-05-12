@@ -52,7 +52,7 @@ export default function ServiciosDestacados() {
                   <Image
                     source={{ uri: item.imagen }}
                     style={estilos.imgCardInfo}
-                    resizeMode="cover"
+                    resizeMode="contain"
                   />
                   <Text style={estilos.tituloTarjeta}>{item.title}</Text>
                 </TouchableOpacity>

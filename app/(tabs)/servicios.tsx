@@ -104,7 +104,9 @@ export default function Servicios() {
           onPress={() =>
             setCategoriaSeleccionada(cat)
           }>
-            <Text style={[
+            <Text
+            numberOfLines={1} 
+            style={[
               estilos.cuadroCategoria,
               {
                 color: categoriaSeleccionada === cat ? '#fff' : '#333'
