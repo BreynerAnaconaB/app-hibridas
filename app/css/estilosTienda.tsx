@@ -20,16 +20,22 @@ const estilos = StyleSheet.create({
     nombreItem: {
         fontWeight: 'bold', 
         textAlign: 'center', 
-        fontSize: 12
+        fontSize: 15
     },
     itemPrecio: {
         color: 'green', 
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        alignItems: 'center'
     },
     botonAgregar: {
-        width: '100%', 
-        padding: 5, 
-        marginTop: 5
+        backgroundColor: '#e7e7e7',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 12,
+        alignItems: 'center',
+        marginTop: 10,
+        alignSelf: 'center',
+        width: '80%',
     },
     vistaCategorias: {
         flex: 1, 
@@ -52,7 +58,12 @@ const estilos = StyleSheet.create({
     cuadroCategoria: {
        color: '#fff', 
        fontWeight: 'bold'
-    }
+    },
+    textoBoton: {
+        color: '#fff',
+        fontWeight: '700',
+        fontSize: 16,
+    }    
 })
 
 export default estilos

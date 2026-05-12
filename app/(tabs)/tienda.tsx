@@ -51,9 +51,19 @@ export default function PantallaTienda() {
                         <TouchableOpacity
                             key={cat}
                             onPress={() => setCategoriaSeleccionada(cat)}
-                            style={estilos.categorias}
+                            style={[
+                                estilos.categorias,
+                                {
+                                    backgroundColor: categoriaSeleccionada === cat ? '#007bff' : '#5a5a5a'
+                                }
+                            ]}
                         >
-                            <Text style={estilos.cuadroCategoria}>{cat}</Text>
+                            <Text style={[
+                                estilos.cuadroCategoria,
+                                {
+                                    color: categoriaSeleccionada === cat ? '#333' : '#fff'
+                                }
+                            ]}>{cat}</Text>
                         </TouchableOpacity>
                     ))}
                 </ScrollView>

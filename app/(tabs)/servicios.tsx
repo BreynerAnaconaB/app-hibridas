@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, ListRenderItem, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import estilos from "../css/estilosServicios";
 
 interface Servicio {
@@ -20,7 +21,7 @@ const listaServicios: Servicio[] = [
     id: "2", 
     nombre: "Mantenimiento de PC", 
     descripcion: "Limpieza y optimización", 
-    categoria: "Reparaciones"
+    categoria: "Mantenimiento"
   },
   { 
     id: "3", 
@@ -40,6 +41,12 @@ const listaServicios: Servicio[] = [
     descripcion: "Cargadores, audífonos, etc.", 
     categoria: "Accesorios"
   },
+  {
+    id: "6",
+    nombre: "Reparación de audifonos",
+    descripcion: "Auriculares, inalambricos y cascos",
+    categoria: "Reparaciones"
+  }
 ]
 
 const categorias = [
@@ -62,42 +69,52 @@ export default function Servicios() {
         item => item.categoria === categoriaSeleccionada
       );
 
-  const render = ({ item }: { item: Servicio }) => (
-    <View style={estilos.card}>
+      const render: ListRenderItem<Servicio> = ({ item }) => (
+      <View style={estilos.card}>
       <Text style={estilos.nombreItem}>{item.nombre}</Text>
       <Text style={estilos.descripcion}>{item.descripcion}</Text>
 
       <TouchableOpacity style={estilos.botonAgregar}>
         <Text style={estilos.textoBoton}>Solicitar</Text>
       </TouchableOpacity>
-    </View>
-  )
+       </View>    
+      )
+
+
 
   return (
-    <View style={estilos.container}>
-      <Text style={estilos.titulo}>Servicios</Text>
+    <SafeAreaView style={estilos.vistaCategorias}>
+    <View style={estilos.vistaGeneral}>
 
-      <FlatList 
-      data={categorias}
+      <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      keyExtractor={(item) => item}
+      contentContainerStyle={
+        estilos.containerCategorias
+      }>
+        {categorias.map(cat => (
+          <TouchableOpacity
+          style={[estilos.categorias,
 
-      contentContainerStyle={{
-        paddingBottom: 20
-      }}
-
-      renderItem={({ item }) => (
-        <TouchableOpacity onPress={() => setCategoriaSeleccionada(item)}
-        style={{backgroundColor: categoriaSeleccionada === item ? "#fff" : "#ddd"}}>
-          <Text style={{
-            backgroundColor: categoriaSeleccionada === item ? "#fff" : "#ddd",}}>
-            {item}
-          </Text>
-        </TouchableOpacity>
-      )}
+            {
+              backgroundColor: categoriaSeleccionada === cat ? '#007bff' : '#ddd'
+            }
+          ]}
+          key={cat}
+          onPress={() =>
+            setCategoriaSeleccionada(cat)
+          }>
+            <Text style={[
+              estilos.cuadroCategoria,
+              {
+                color: categoriaSeleccionada === cat ? '#fff' : '#333'
+              }
+            ]}>{cat}</Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+      </View>
       
-      />
       <FlatList 
       data={serviciosFiltrados}
       numColumns={2}
@@ -106,8 +123,9 @@ export default function Servicios() {
       }}
       keyExtractor={(item) => item.id}
       renderItem={render}
-      contentContainerStyle={{ paddingBottom: 20 }}
+      contentContainerStyle={{ paddingBottom: 100, paddingHorizontal: 10 }}
       />
-    </View>
+    
+    </SafeAreaView>
   )
 }
