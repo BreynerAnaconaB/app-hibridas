@@ -26,5 +26,11 @@ export const styles = StyleSheet.create({
     errorText: {
         color: "red", 
         marginBottom: 10
-    }    
+    },
+    noCuentaBoton: {
+        color: '#444', 
+        textAlign: 'center', 
+        marginTop: 15, 
+        fontWeight: '600'
+    },    
 })

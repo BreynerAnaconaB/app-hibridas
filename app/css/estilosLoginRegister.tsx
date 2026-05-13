@@ -65,8 +65,9 @@ const estilosLoginRegister = StyleSheet.create({
     noCuentaBoton: {
         color: '#444', 
         textAlign: 'center', 
-        marginTop: 15, 
-        fontWeight: '600'
+        marginTop: 45, 
+        fontWeight: '600',
+        
     },
     nombrePagina: {
         fontSize: 28, 
@@ -75,10 +76,10 @@ const estilosLoginRegister = StyleSheet.create({
         marginBottom: 20
     },
     olvidarContraseña: {
-        color: '#666', 
+        color: '#444', 
         textAlign: 'center', 
         marginTop: 15, 
-        fontSize: 14
+        fontWeight: '600'
     },
     registrate: {
         fontSize: 24, 

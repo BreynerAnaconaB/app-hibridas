@@ -99,7 +99,9 @@ export default function PantallaTienda() {
                                 }
                             ]}
                         >
-                            <Text style={[
+                            <Text
+                            numberOfLines={1} 
+                            style={[
                                 estilos.cuadroCategoria,
                                 {
                                     color: categoriaSeleccionada === cat ? '#fff' : '#333'

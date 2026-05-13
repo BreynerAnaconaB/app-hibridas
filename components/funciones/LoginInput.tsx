@@ -84,12 +84,20 @@ export const LoginInput: React.FC<Props> = ({onSubmit}) => {
             <Text style={styles.errorText}>{error}</Text>
             )}
 
+
+
             <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                 <Text style={styles.buttonText}>Iniciar sesión</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => {}}>
+            <Text style={styles.noCuentaBoton}>
+            ¿Olvidaste tu contraseña?
+            </Text>
+            </TouchableOpacity>
+            
         </View>
     )
-
     
 }
 

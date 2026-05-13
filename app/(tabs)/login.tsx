@@ -37,11 +37,11 @@ export default function Login() {
 
         <LoginInput onSubmit={handleLogin} />
 
-        <TouchableOpacity onPress={() => {}}>
-          <Text style={estilos.olvidarContraseña}>
-            ¿Olvidaste tu contraseña?
-          </Text>
+
+        <TouchableOpacity onPress={() => router.push("/register")}>
+          <Text style={estilos.noCuentaBoton}>¿No tienes una cuenta?</Text>
         </TouchableOpacity>
+
       </View>
     </View>
   );
