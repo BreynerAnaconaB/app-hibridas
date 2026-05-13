@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FlatList, ListRenderItem, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, ListRenderItem, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import estilos from '../css/estilosTienda';
 
 interface Product {
@@ -7,15 +7,52 @@ interface Product {
     nombre: string;
     precio: string;
     categoria: string;
+    imagen: any
 }
 
 const products: Product[] = [
-    { id: '1', nombre: 'Teclado mecanico', precio: '$129.900', categoria: 'Periféricos' },
-    { id: '2', nombre: 'Mouse Gamer', precio: '$129.900', categoria: 'Periféricos' },
-    { id: '3', nombre: 'Monitor 27"', precio: '$700.000', categoria: 'Pantallas' },
-    { id: '4', nombre: 'GeForce RTX 4070', precio: '$2.000.000', categoria: 'Componentes' },
-    { id: '5', nombre: 'Ryzen 7 5800X', precio: '$700.000', categoria: 'Componentes' },
-    { id: '6', nombre: 'RAM 32GB', precio: '$2.000.000', categoria: 'Componentes' },
+    { 
+    id: '1', 
+    nombre: 'Teclado mecanico', 
+    precio: '$129.900', 
+    categoria: 'Periféricos',
+    imagen: require('../(tabs)/assets/TECLADODRAGONBORNK630.webp')
+    },
+    { 
+        id: '2', 
+        nombre: 'Mouse Gamer', 
+        precio: '$129.900', 
+        categoria: 'Periféricos',
+        imagen: require('../(tabs)/assets/mouseredragonm607griffinrgb2.webp')
+    },
+    { 
+        id: '3', 
+        nombre: 'Monitor 27"', 
+        precio: '$700.000', 
+        categoria: 'Pantallas',
+        imagen: require('../(tabs)/assets/ACER-27-KG270-2-Photoroom.webp')
+    },
+    { 
+        id: '4', 
+        nombre: 'GeForce RTX 4070', 
+        precio: '$2.000.000', 
+        categoria: 'Componentes',
+        imagen: require('../(tabs)/assets/4070-SUPER-600x480.png')
+    },
+    { 
+        id: '5', 
+        nombre: 'Ryzen 7 5800X', 
+        precio: '$700.000', 
+        categoria: 'Componentes',
+        imagen: require('../(tabs)/assets/2069-600x600-1.png')
+    },
+    { 
+        id: '6', 
+        nombre: 'RAM 32GB', 
+        precio: '$2.000.000', 
+        categoria: 'Componentes',
+        imagen: require('../(tabs)/assets/RAM-LKI-1176_grande.webp')
+    },
 ];
 
 const categories = ['Todos', 'Periféricos', 'Componentes', 'Pantallas'];
@@ -30,7 +67,11 @@ export default function PantallaTienda() {
 
     const renderProduct: ListRenderItem<Product> = ({ item }) => (
         <View style={estilos.card}>
-            <View style={estilos.card2}></View>
+            <Image 
+            source={item.imagen}
+            style={estilos.card2}
+            resizeMode="contain"
+            />
             <Text style={estilos.nombreItem}>{item.nombre}</Text>
             <Text style={estilos.itemPrecio}>{item.precio}</Text>
             <TouchableOpacity 

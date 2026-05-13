@@ -17,7 +17,7 @@ const serviciosDestacados: servicios[] = [
   {
     id: "2",
     title: "Mantenimiento de computadores",
-    imagen: "https://cdn-icons-png.flaticon.com/512/2921/2921822.png"
+    imagen: "https://cdn-icons-png.flaticon.com/128/2344/2344521.png"
   },
   {
     id: "3",

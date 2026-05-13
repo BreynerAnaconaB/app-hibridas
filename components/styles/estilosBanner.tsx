@@ -22,7 +22,7 @@ const estilos = StyleSheet.create({
     },
   
     Tituloindex: {
-        fontWeight: 900,
+        fontWeight: 800,
         fontSize: 50,
         borderRadius: 20,
         marginTop: '2%',

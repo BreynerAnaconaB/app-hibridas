@@ -5,27 +5,27 @@ interface productos {
     id: string,
     nombre: string,
     precio: string,
-    imagen: string
+    imagen: any
 }   
 
 const productosDestacados: productos[] = [
   {
     id: "1",
-    nombre: "RTX 4070",
+    nombre: "GeForce RTX 4070",
     precio: "$2.000.000",
-    imagen: "https://http2.mlstatic.com/D_NQ_NP_2X_690593-MLA74651271920_022024-F.webp"
+    imagen: require('@/app/(tabs)/assets/4070-SUPER-600x480.png')
   },
   {
     id: "2",
     nombre: "Ryzen 7 5800X",
     precio: "$700.000",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ5c6aI3N8GJY6u1gQ4Wn9rxI7VE4L4W5W0g&s"
+    imagen: require('@/app/(tabs)/assets/2069-600x600-1.png')
   },
   {
     id: "3",
-    nombre: "Monitor Gamer",
+    nombre: 'Monitor 27"',
     precio: "$900.000",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0W9w1C0x7Bhx6A2v7_xR6M3T0Yc8H1bYk4w&s"
+    imagen: require('@/app/(tabs)/assets/ACER-27-KG270-2-Photoroom.webp')
   }
 ]
 
@@ -58,7 +58,7 @@ export default function ProductosDestacados() {
       activeOpacity={0.8}
     >
       <Image
-        source={{ uri: item.imagen }}
+        source={item.imagen}
         style={estilos.imgCardInfo}
         resizeMode="contain"
       />

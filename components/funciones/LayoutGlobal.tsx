@@ -18,8 +18,11 @@ export const Header = () => {
     return (
         <View style={estilos.header}>
             <View style={estilos.headerContainer}>
-                <TouchableOpacity onPress={() => router.push('/')}>
-                    <Text style={estilos.logoText}>
+                <TouchableOpacity onPress={() => router.push('/')} style={{flex: 1}}>
+                    <Text
+                    adjustsFontSizeToFit 
+                    style={[estilos.logoText,
+                    ]}>
                         Tec<Text style={estilos.logoSpan}>Nano</Text>
                     </Text>
                 </TouchableOpacity>

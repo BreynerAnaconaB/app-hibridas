@@ -3,19 +3,20 @@ import { StyleSheet } from "react-native";
 const estilos = StyleSheet.create({
     card: {
     backgroundColor: '#fff', 
-    padding: 10, 
+    padding: 15, 
     margin: 5, 
-    borderRadius: 10, 
-    flex: 1
+    borderRadius: 15, 
+    flex: 1,
+    minHeight: 320
     },
     card2: {
         backgroundColor: '#f0f0f0', 
         width: '100%', 
-        height: 80, 
-        borderRadius: 10, 
+        height: 180, 
+        borderRadius: 10,
+        marginBottom: 10, 
         justifyContent: 'center', 
-        alignItems: 'center', 
-        marginBottom: 10
+        alignSelf: 'center', 
     },
     nombreItem: {
         fontWeight: 'bold', 

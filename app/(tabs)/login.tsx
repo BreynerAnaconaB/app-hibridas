@@ -14,7 +14,7 @@ export default function Login() {
     try {
       console.log("Enviando login:", form);
 
-      const res = await login(form.correo, form.contraseña); // 👈 AQUÍ EL FIX
+      const res = await login(form.correo, form.contraseña);
 
       console.log("Respuesta:", res);
 

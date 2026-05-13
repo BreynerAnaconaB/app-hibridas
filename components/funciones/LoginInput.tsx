@@ -32,7 +32,8 @@ export const LoginInput: React.FC<Props> = ({onSubmit}) => {
     },
     {
         name: "contraseña",
-        label: "Contraseña"
+        label: "Contraseña",
+        secureTextEntry: true
     }
     ]
 

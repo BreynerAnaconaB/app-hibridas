@@ -15,12 +15,12 @@ const estilosLayout = StyleSheet.create({
     width: '100%',
   },
   logoText: { 
-    fontSize: 40, 
     fontWeight: 'bold',
-    color: 'white' 
+    color: 'white',
+    fontSize: 40
   },
   logoSpan: { 
-    color: '#333' 
+    color: '#333',
   },
 
   containerBotonesHorizontal: {
@@ -73,14 +73,18 @@ const estilosLayout = StyleSheet.create({
   },
 
   footer: {
-    height: 50,
+    minHeight: 50,
     backgroundColor: '#333',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 15
   },
   textSmall: { 
     color: 'white', 
-    fontSize: 12 
+    fontSize: 12,
+    textAlign: 'center',
+    width: '100%'
   },
 });
 
