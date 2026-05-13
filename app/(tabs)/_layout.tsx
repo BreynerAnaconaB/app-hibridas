@@ -3,7 +3,6 @@ import { Tabs, usePathname } from 'expo-router';
 import { View } from 'react-native';
 import { AuthProvider } from '../../context/AuthContext';
 
-
 export default function TabLayout() {
   const rutaActual = usePathname();
   const esPantallaAuth = rutaActual === '/login' || rutaActual === '/register';

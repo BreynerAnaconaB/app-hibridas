@@ -27,9 +27,8 @@ const estilos = StyleSheet.create ({
         alignSelf: 'center'
     },    
     tituloTarjeta: {
-        fontFamily:'sans-serif-condensed',
         fontSize: 20,
-        fontWeight: '800',
+        fontWeight: '700',
         color: '#000000',
         marginBottom: 6,
         textAlign: 'center'

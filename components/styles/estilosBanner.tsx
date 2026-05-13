@@ -22,7 +22,6 @@ const estilos = StyleSheet.create({
     },
   
     Tituloindex: {
-        fontFamily: 'sans-serif-condensed',
         fontWeight: 900,
         fontSize: 50,
         borderRadius: 20,
@@ -37,7 +36,6 @@ const estilos = StyleSheet.create({
 
     textIndex: {
         fontSize: 24,
-        fontFamily: 'sans-serif-medium',
         fontWeight: 500,
         color: '#ffffff',
         width: '100%',

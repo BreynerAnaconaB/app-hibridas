@@ -21,9 +21,8 @@ const estilos = StyleSheet.create({
     },
 
     tituloTarjeta: {
-        fontFamily:'sans-serif-condensed',
-        fontSize: 22,
-        fontWeight: '800',
+        fontSize: 19,
+        fontWeight: '700',
         color: '#000',
         marginBottom: 8,
         textAlign: 'center'
@@ -32,8 +31,8 @@ const estilos = StyleSheet.create({
     textTarjeta:{
         fontSize: 15,
         lineHeight: 22,
-        fontFamily: 'sans-serif-medium',
-        color: '#444'
+        color: '#444',
+        textAlign: 'center'
     },
 })
 
